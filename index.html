@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMSI42 | Dépannage Informatique & Optimisation à Distance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>KMSI42 | Dépannage Informatique à Distance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -12,90 +12,96 @@
             --primary: #0056b3; --dark-bg: #ffffff; --card-bg: #ffffff; 
             --text: #333; --light: #f4f7f9; --border: #eee;
             --warning: #ffc107; --accent: #28a745;
-            --glass: rgba(255, 255, 255, 0.8);
-        }
-        [data-theme="dark"] {
-            --dark-bg: #121212; --card-bg: #1e1e1e;
-            --text: #e0e0e0; --light: #1a1a1a; --border: #333;
-            --glass: rgba(30, 30, 30, 0.8);
+            --header-bg: linear-gradient(135deg, #0056b3 0%, #002d5e 100%);
+            --title-glow: none;
         }
 
-        /* Transition universelle douce */
-        * { box-sizing: border-box; transition: all 0.4s ease-out; }
-        
-        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background-color: var(--dark-bg); overflow-x: hidden; }
+        /* Variables MODE SOMBRE - Effets Spéciaux ici */
+        [data-theme="dark"] {
+            --dark-bg: #0a0a0c; --card-bg: #141417;
+            --text: #e0e0e0; --light: #0f0f11; --border: #2a2a2e;
+            /* Fond Nébuleuse Animé pour le Header */
+            --header-bg: linear-gradient(125deg, #001f4d 0%, #000000 40%, #1a0033 70%, #00331a 100%);
+            --title-glow: 0 0 15px rgba(0, 123, 255, 0.7);
+        }
+
+        * { box-sizing: border-box; transition: background 0.4s, color 0.3s, box-shadow 0.3s; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.5; color: var(--text); margin: 0; background-color: var(--dark-bg); }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; }
 
-        /* Header Dynamique */
         header { 
-            background: linear-gradient(135deg, #0056b3 0%, #002d5e 100%); 
+            background: var(--header-bg);
+            background-size: 200% 200%;
+            animation: nebulaAnimation 15s ease infinite;
             color: white; padding: 4rem 1rem; text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+            position: relative; overflow: hidden;
+        }
+
+        /* Animation du fond nébuleuse */
+        @keyframes nebulaAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container { max-width: 1000px; margin: auto; padding: 1rem 2rem; position: relative; z-index: 2; }
+
+        .glitch-title {
+            font-size: 3rem; font-weight: 800; text-transform: uppercase; margin: 0;
+            text-shadow: var(--title-glow);
             position: relative;
         }
 
-        .container { max-width: 1000px; margin: auto; padding: 1rem 2rem; }
+        /* Effet de scanline subtil en mode sombre */
+        [data-theme="dark"] header::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 100% 4px; z-index: 1; pointer-events: none; opacity: 0.5;
+        }
 
-        /* Boutons Modernes avec lueur */
         .btn { 
             display: inline-block; padding: 0.9rem 2rem; text-decoration: none; border-radius: 50px; 
-            font-weight: 600; margin: 0.5rem; position: relative; overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-weight: 600; margin: 0.5rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 2px solid transparent;
         }
         .btn-main { background: var(--warning); color: #222; }
-        .btn-download { background: var(--accent); color: white; }
+        .btn-download { background: transparent; border-color: var(--accent); color: var(--accent); }
+        [data-theme="dark"] .btn-download { color: white; border-color: white; background: rgba(255,255,255,0.1); }
         
-        .btn:hover { 
-            transform: translateY(-3px) scale(1.03); 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
 
-        /* Grilles et Cartes Animées */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         
         .card { 
-            background: var(--card-bg); padding: 2rem; border-radius: 16px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border);
-            position: relative;
+            background: var(--card-bg); padding: 1.8rem; border-radius: 12px; text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 1px solid var(--border);
+            position: relative; overflow: hidden;
         }
-        
-        /* Effet de soulèvement et bordure au survol */
-        .card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--primary);
-        }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
-        .price { font-size: 2.5rem; font-weight: 700; color: var(--primary); display: block; margin: 1rem 0; }
+        .price { font-size: 2.2rem; font-weight: 700; color: var(--primary); display: block; margin: 0.5rem 0; }
 
-        /* Animation des icônes d'étapes */
-        .step i { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; display: block; transition: transform 0.6s ease; }
-        .card_step:hover i { transform: rotateY(360deg); }
+        .step i { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; display: block; text-shadow: var(--title-glow); }
         
-        /* Badges de confiance style "Verre" */
         .trust-badge {
-            background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);
-            display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 0.95rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--card-bg); padding: 1rem; border-radius: 8px; border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 0.9rem;
         }
 
-        section { padding: 4rem 0; }
+        section { padding: 3rem 0; }
         .bg-light { background-color: var(--light); }
 
-        footer { background: #000; color: #ccc; text-align: center; padding: 4rem 0; font-size: 0.9rem; position: relative; }
-        .footer-contact { color: white; font-weight: 600; text-decoration: none; display: block; margin-bottom: 0.8rem; font-size: 1.1rem;}
+        footer { background: #000; color: #aaa; text-align: center; padding: 4rem 0; font-size: 0.85rem; border-top: 1px solid #222; }
+        .footer-contact { color: white; font-weight: 600; text-decoration: none; display: block; margin-bottom: 0.8rem; font-size: 1rem;}
 
-        /* Bouton Mode Sombre Flottant "Verre" */
         #theme-toggle {
-            position: fixed; bottom: 25px; right: 25px; 
-            background: var(--glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            color: var(--primary); border: 1px solid rgba(255,255,255,0.2);
+            position: fixed; bottom: 25px; right: 25px; background: var(--primary); color: white; border: none;
             width: 55px; height: 55px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; z-index: 1000;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
         }
-        #theme-toggle:hover { transform: scale(1.1) rotate(15deg); background: var(--primary); color: white; }
-
+        #theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
     </style>
 </head>
 <body>
@@ -104,28 +110,30 @@
 
 <header>
     <div class="container">
-        <h1 style="margin:0; font-size: 2.5rem;">KMSI42</h1>
-        <p style="font-size: 1.2rem; opacity: 0.9; margin: 0.8rem 0 2rem 0; font-weight: 400;">Dépannage Informatique & Optimisation à Distance</p>
-        <a href="#footer" class="btn btn-main">Me contacter</a>
-        <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
+        <h1 class="glitch-title">KMSI42</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9; margin: 0.8rem 0 2rem 0; font-weight: 600;">Dépannage & Optimisation Informatique à Distance</p>
+        <div style="position: relative; z-index: 3;">
+            <a href="#footer" class="btn btn-main">Me contacter</a>
+            <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
+        </div>
     </div>
 </header>
 
 <div class="container">
-    <section id="process" style="padding-top: 2rem;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Une réparation en 3 étapes simples</h2>
+    <section id="process" style="padding-top: 1rem;">
+        <h2 style="text-align: center;">Réparation Express en 3 Étapes</h2>
         <div class="grid">
-            <div class="card card_step">
+            <div class="card step">
                 <i class="fas fa-phone-alt"></i>
                 <h3>1. Contact</h3>
                 <p>On échange sur votre problème par téléphone ou message.</p>
             </div>
-            <div class="card card_step">
+            <div class="card step">
                 <i class="fas fa-user-shield"></i>
                 <h3>2. Accès</h3>
                 <p>Via RustDesk, vous m'ouvrez un accès sécurisé temporaire.</p>
             </div>
-            <div class="card card_step">
+            <div class="card step">
                 <i class="fas fa-magic"></i>
                 <h3>3. Solution</h3>
                 <p>Je répare et j'optimise. Vous retrouvez un PC performant !</p>
@@ -136,67 +144,5 @@
 
 <section class="bg-light">
     <div class="container">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Mes Services & Tarifs</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Pack "Coup de Jeune"</h3>
-                <p>Nettoyage complet, suppression virus et accélération système.</p>
-                <span class="price">30€</span>
-            </div>
-            <div class="card" style="border-top: 5px solid var(--warning);">
-                <h3>Pack "Dépannage"</h3>
-                <p>Bugs, logiciels, périphériques, aide technique variée.</p>
-                <span class="price">Sur devis</span>
-            </div>
-            <div class="card">
-                <h3>Pack "Sécurité"</h3>
-                <p>Protection données, sauvegardes et conseils anti-arnaques.</p>
-                <span class="price">20€</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="container">
-    <section id="a-propos">
-        <div style="text-align: center; max-width: 750px; margin: auto; margin-bottom: 3rem;">
-            <h2>Expertise & Proximité</h2>
-            <p style="font-size: 1.1rem;">Technicien indépendant basé dans la Loire (42), j'interviens partout en France. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran, en toute transparence.</p>
-        </div>
-        
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-            <div class="trust-badge"><i class="fas fa-shield-alt" style="color:var(--primary); font-size: 1.2rem;"></i> 100% Sécurisé</div>
-            <div class="trust-badge"><i class="fas fa-check-circle" style="color:var(--primary); font-size: 1.2rem;"></i> Satisfait ou Remboursé</div>
-            <div class="trust-badge"><i class="fas fa-bolt" style="color:var(--primary); font-size: 1.2rem;"></i> Intervention Rapide</div>
-        </div>
-    </section>
-</div>
-
-<footer id="footer">
-    <div class="container">
-        <p style="font-size: 1.1rem;"><strong>KMSI42 - KM Service Informatique</strong></p>
-        <p>SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
-        <p class="footer-contact">E-mail : [En cours d'activation]</p>
-        <p style="font-size: 1.2rem; color: white;">📞 [Votre Numéro de Téléphone]</p>
-    </div>
-</footer>
-
-<script>
-    // Gestion du Mode Sombre
-    const toggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = toggleBtn.querySelector('i');
-
-    toggleBtn.addEventListener('click', () => {
-        if (body.hasAttribute('data-theme')) {
-            body.removeAttribute('data-theme');
-            icon.className = 'fas fa-moon';
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.className = 'fas fa-sun';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-
-    // Charger le thème préféré de l'utilisateur
+        <h2 style="text-align: center;">Mes Services & Tarifs</h2>
+        <div class
