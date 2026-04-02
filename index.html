@@ -13,25 +13,19 @@
             --text: #333; --light: #f4f7f9; --border: #eee;
             --warning: #ffc107; --accent: #28a745;
         }
-
-        /* Variables Mode Sombre */
         [data-theme="dark"] {
             --dark-bg: #121212; --card-bg: #1e1e1e;
             --text: #e0e0e0; --light: #1a1a1a; --border: #333;
         }
-
         * { box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
         body { font-family: 'Open Sans', sans-serif; line-height: 1.5; color: var(--text); margin: 0; background-color: var(--dark-bg); }
         h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; }
-
         header { 
             background: linear-gradient(135deg, #0056b3 0%, #002d5e 100%); 
             color: white; padding: 3rem 1rem; text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
         }
-
         .container { max-width: 1000px; margin: auto; padding: 1rem 2rem; }
-
         .btn { 
             display: inline-block; padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 50px; 
             font-weight: 600; margin: 0.5rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -39,48 +33,37 @@
         .btn-main { background: var(--warning); color: #222; }
         .btn-download { background: var(--accent); color: white; }
         .btn:hover { transform: translateY(-2px); }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-        
         .card { 
             background: var(--card-bg); padding: 1.5rem; border-radius: 12px; text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 1px solid var(--border);
         }
-
         .price { font-size: 2rem; font-weight: 700; color: var(--primary); display: block; margin: 0.5rem 0; }
-
         .step i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block; }
-        
         .trust-badge {
             background: var(--card-bg); padding: 0.8rem; border-radius: 8px; border: 1px solid var(--border);
             display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem;
         }
-
         section { padding: 2.5rem 0; }
         .bg-light { background-color: var(--light); }
-
         footer { background: #000; color: #ccc; text-align: center; padding: 3rem 0; font-size: 0.85rem; }
         .footer-contact { color: white; font-weight: 600; text-decoration: none; display: block; margin-bottom: 0.5rem;}
-
-        /* Bouton Mode Sombre Flottant */
         #theme-toggle {
-            position: fixed; bottom: 20px; right: 20px;
-            background: var(--primary); color: white; border: none;
-            width: 50px; height: 50px; border-radius: 50%;
-            cursor: pointer; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; border: none;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; z-index: 1000;
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
     </style>
 </head>
 <body>
 
-<button id="theme-toggle" title="Changer de mode"><i class="fas fa-moon"></i></button>
+<button id="theme-toggle"><i class="fas fa-moon"></i></button>
 
 <header>
     <div class="container">
         <h1 style="margin:0;">KMSI42</h1>
         <p style="font-size: 1.1rem; opacity: 0.9; margin: 0.5rem 0 1.5rem 0;">Dépannage & Optimisation Informatique à Distance</p>
-        <a href="mailto:contact@kmsi42.fr" class="btn btn-main">Diagnostic Gratuit</a>
+        <a href="#footer" class="btn btn-main">Me contacter</a>
         <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
     </div>
 </header>
@@ -92,17 +75,17 @@
             <div class="card step">
                 <i class="fas fa-phone-alt"></i>
                 <h3>1. Contact</h3>
-                <p>On échange sur votre problème par mail ou téléphone.</p>
+                <p>On échange sur votre problème par téléphone ou message.</p>
             </div>
             <div class="card step">
                 <i class="fas fa-user-shield"></i>
                 <h3>2. Accès</h3>
-                <p>Via RustDesk, vous m'ouvrez un accès temporaire sécurisé.</p>
+                <p>Via RustDesk, vous m'ouvrez un accès sécurisé temporaire.</p>
             </div>
             <div class="card step">
                 <i class="fas fa-magic"></i>
                 <h3>3. Solution</h3>
-                <p>Je répare et j'optimise. Vous retrouvez un PC fluide !</p>
+                <p>Je répare et j'optimise. Vous retrouvez un PC performant !</p>
             </div>
         </div>
     </section>
@@ -119,7 +102,7 @@
             </div>
             <div class="card" style="border-top: 4px solid var(--warning);">
                 <h3>Pack "Dépannage"</h3>
-                <p>Bugs, logiciels, aide technique.</p>
+                <p>Bugs, logiciels, aide technique variée.</p>
                 <span class="price">Sur devis</span>
             </div>
             <div class="card">
@@ -135,9 +118,8 @@
     <section id="a-propos">
         <div style="text-align: center; max-width: 700px; margin: auto;">
             <h2>Expertise & Proximité</h2>
-            <p>Spécialiste basé dans la Loire (42), j'interviens partout en France. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran.</p>
+            <p>Technicien indépendant basé dans la Loire (42), j'interviens partout en France. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran.</p>
         </div>
-        
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 2rem;">
             <div class="trust-badge"><i class="fas fa-shield-alt" style="color:var(--primary)"></i> 100% Sécurisé</div>
             <div class="trust-badge"><i class="fas fa-check-circle" style="color:var(--primary)"></i> Satisfait ou Remboursé</div>
@@ -146,12 +128,12 @@
     </section>
 </div>
 
-<footer>
+<footer id="footer">
     <div class="container">
         <p><strong>KMSI42 - KM Service Informatique</strong></p>
         <p>SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
-        <a href="mailto:contact@kmsi42.fr" class="footer-contact">contact@kmsi42.fr</a>
-        <p>📞 [Ton Numéro ici]</p>
+        <p class="footer-contact">E-mail : [En cours d'activation]</p>
+        <p>📞 [Votre Numéro de Téléphone]</p>
     </div>
 </footer>
 
@@ -159,7 +141,6 @@
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = toggleBtn.querySelector('i');
-
     toggleBtn.addEventListener('click', () => {
         if (body.hasAttribute('data-theme')) {
             body.removeAttribute('data-theme');
