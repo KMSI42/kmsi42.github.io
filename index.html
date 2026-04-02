@@ -8,112 +8,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root { 
-            --primary: #0056b3; 
-            --dark: #002d5e;
-            --accent: #28a745; 
-            --warning: #ffc107;
-            --light: #f4f7f9;
-            --text: #333; 
-        }
-
+        :root { --primary: #0056b3; --dark: #002d5e; --accent: #28a745; --warning: #ffc107; --light: #f4f7f9; --text: #333; }
         * { box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background-color: white; }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.5; color: var(--text); margin: 0; background-color: white; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; }
 
-        /* Header avec Dégradé Moderne */
         header { 
             background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); 
-            color: white; 
-            padding: 6rem 1rem; 
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+            color: white; padding: 3rem 1rem; text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
         }
 
-        .container { max-width: 1100px; margin: auto; padding: 2rem; }
+        .container { max-width: 1000px; margin: auto; padding: 1rem 2rem; }
 
-        /* Boutons avec effets */
         .btn { 
-            display: inline-block; 
-            padding: 1rem 2rem; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 600; 
-            margin: 0.5rem; 
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: inline-block; padding: 0.8rem 1.8rem; text-decoration: none; border-radius: 50px; 
+            font-weight: 600; margin: 0.5rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         .btn-main { background: var(--warning); color: #222; }
         .btn-download { background: var(--accent); color: white; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); opacity: 0.95; }
+        .btn:hover { transform: translateY(-2px); opacity: 0.95; }
 
-        /* Grilles et Cartes */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         
         .card { 
-            background: white; 
-            padding: 2rem; 
-            border-radius: 15px; 
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border: 1px solid #eee;
+            background: white; padding: 1.5rem; border-radius: 12px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;
         }
-        .card:hover { border-color: var(--primary); transform: scale(1.02); }
 
-        .price { font-size: 2.2rem; font-weight: 700; color: var(--primary); display: block; margin: 1rem 0; }
+        .price { font-size: 2rem; font-weight: 700; color: var(--primary); display: block; margin: 0.5rem 0; }
 
-        /* Section Etapes */
-        .step i { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; display: block; }
+        .step i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block; }
         
-        /* Badges de confiance */
         .trust-badge {
-            background: var(--light);
-            padding: 1rem;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            background: white; padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd;
+            display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.9rem;
         }
 
-        section { padding: 5rem 0; }
+        section { padding: 2.5rem 0; }
         .bg-light { background-color: var(--light); }
 
-        footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 4rem 0; font-size: 0.9rem; }
-        .footer-contact { color: white; font-weight: 600; margin-top: 1rem; display: block; text-decoration: none;}
-
-        @media (max-width: 768px) { header { padding: 4rem 1rem; } }
+        footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 3rem 0; font-size: 0.85rem; }
+        .footer-contact { color: white; font-weight: 600; text-decoration: none; display: block; margin-bottom: 0.5rem;}
     </style>
 </head>
 <body>
 
 <header>
     <div class="container">
-        <h1>KMSI42</h1>
-        <p style="font-size: 1.2rem; opacity: 0.9;">Dépannage Informatique & Optimisation à Distance</p>
-        <div style="margin-top: 2.5rem;">
-            <a href="mailto:contact@kmsi42.fr" class="btn btn-main"><i class="fas fa-envelope"></i> Diagnostic Gratuit</a>
-            <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
-        </div>
-        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.8;">Outil sécurisé, sans installation requise.</p>
+        <h1 style="margin:0;">KMSI42</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9; margin: 0.5rem 0 1.5rem 0;">Dépannage & Optimisation Informatique à Distance</p>
+        <a href="mailto:contact@kmsi42.fr" class="btn btn-main">Diagnostic Gratuit</a>
+        <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
     </div>
 </header>
 
 <div class="container">
-    
-    <section id="confiance">
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="trust-badge"><i class="fas fa-shield-alt text-primary"></i> 100% Sécurisé</div>
-            <div class="trust-badge"><i class="fas fa-euro-sign text-primary"></i> Pas de succès, pas de frais</div>
-            <div class="trust-badge"><i class="fas fa-bolt text-primary"></i> Intervention Rapide</div>
-        </div>
-    </section>
-
-    <section id="process">
-        <h2>Une réparation en 3 étapes</h2>
+    <section id="process" style="padding-top: 1rem;">
+        <h2 style="text-align: center;">Une réparation en 3 étapes</h2>
         <div class="grid">
             <div class="card step">
                 <i class="fas fa-phone-alt"></i>
@@ -123,12 +75,12 @@
             <div class="card step">
                 <i class="fas fa-user-shield"></i>
                 <h3>2. Accès</h3>
-                <p>Vous m'ouvrez un accès temporaire. Vous gardez le contrôle total.</p>
+                <p>Via RustDesk, vous m'ouvrez un accès temporaire sécurisé.</p>
             </div>
             <div class="card step">
                 <i class="fas fa-magic"></i>
                 <h3>3. Solution</h3>
-                <p>Je répare, je nettoie et je vous rends un PC comme neuf !</p>
+                <p>Je répare et j'optimise. Vous retrouvez un PC fluide !</p>
             </div>
         </div>
     </section>
@@ -136,25 +88,22 @@
 
 <section class="bg-light">
     <div class="container">
-        <h2>Mes Services & Tarifs</h2>
+        <h2 style="text-align: center;">Mes Services & Tarifs</h2>
         <div class="grid">
             <div class="card">
                 <h3>Pack "Coup de Jeune"</h3>
-                <p>Nettoyage complet, suppression des pubs, accélération du démarrage.</p>
+                <p>Nettoyage pubs, fichiers inutiles et accélération.</p>
                 <span class="price">30€</span>
-                <p><small>Idéal pour PC lent</small></p>
             </div>
-            <div class="card" style="border-top-color: var(--warning);">
+            <div class="card" style="border-top: 4px solid var(--warning);">
                 <h3>Pack "Dépannage"</h3>
-                <p>Bugs Windows, installation imprimante, logiciels, aide technique.</p>
+                <p>Bugs, imprimante, logiciels, aide technique.</p>
                 <span class="price">Sur devis</span>
-                <p><small>Prise en charge immédiate</small></p>
             </div>
             <div class="card">
                 <h3>Pack "Sécurité"</h3>
-                <p>Antivirus, sauvegarde, protection de vos comptes et données.</p>
+                <p>Antivirus, sauvegarde et conseils anti-arnaques.</p>
                 <span class="price">20€</span>
-                <p><small>Prévention arnaques</small></p>
             </div>
         </div>
     </div>
@@ -162,9 +111,15 @@
 
 <div class="container">
     <section id="a-propos">
-        <div class="card" style="max-width: 800px; margin: auto; border: none;">
+        <div style="text-align: center; max-width: 700px; margin: auto;">
             <h2>Votre technicien dans la Loire (42)</h2>
-            <p>Spécialiste de la maintenance logicielle, je mets mon expertise à votre service pour prolonger la vie de votre matériel. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran, en toute transparence.</p>
+            <p>Spécialiste de la maintenance logicielle, j'interviens partout en France à distance. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran, en toute transparence.</p>
+        </div>
+        
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 2rem;">
+            <div class="trust-badge"><i class="fas fa-shield-alt" style="color:var(--primary)"></i> 100% Sécurisé</div>
+            <div class="trust-badge"><i class="fas fa-check-circle" style="color:var(--primary)"></i> Satisfait ou Remboursé</div>
+            <div class="trust-badge"><i class="fas fa-bolt" style="color:var(--primary)"></i> Intervention Rapide</div>
         </div>
     </section>
 </div>
@@ -174,8 +129,7 @@
         <p><strong>KMSI42 - KM Service Informatique</strong></p>
         <p>SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
         <a href="mailto:contact@kmsi42.fr" class="footer-contact">contact@kmsi42.fr</a>
-        <p>📞 [Votre Numéro ici]</p>
-        <p style="margin-top: 2rem; font-size: 0.7rem; opacity: 0.5;">Fait avec passion pour un web plus rapide.</p>
+        <p>📞 [Votre Numéro de Téléphone]</p>
     </div>
 </footer>
 
