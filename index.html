@@ -145,4 +145,70 @@
 <section class="bg-light">
     <div class="container">
         <h2 style="text-align: center;">Mes Services & Tarifs</h2>
-        <div class
+        <div class="grid">
+            <div class="card">
+                <h3>Pack "Coup de Jeune"</h3>
+                <p>Nettoyage complet, suppression virus et accélération système.</p>
+                <span class="price">30€</span>
+            </div>
+            <div class="card" style="border-top: 4px solid var(--warning);">
+                <h3>Pack "Dépannage"</h3>
+                <p>Bugs, logiciels, périphériques, aide technique variée.</p>
+                <span class="price">Sur devis</span>
+            </div>
+            <div class="card">
+                <h3>Pack "Sécurité"</h3>
+                <p>Protection données, sauvegardes et conseils anti-arnaques.</p>
+                <span class="price">20€</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <section id="a-propos">
+        <div style="text-align: center; max-width: 750px; margin: auto;">
+            <h2>Expertise & Proximité</h2>
+            <p>Technicien indépendant basé dans la Loire (42), j'interviens partout en France. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran.</p>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2.5rem;">
+            <div class="trust-badge"><i class="fas fa-shield-alt" style="color:var(--primary)"></i> 100% Sécurisé</div>
+            <div class="trust-badge"><i class="fas fa-check-circle" style="color:var(--primary)"></i> Satisfait ou Remboursé</div>
+            <div class="trust-badge"><i class="fas fa-bolt" style="color:var(--primary)"></i> Intervention Rapide</div>
+        </div>
+    </section>
+</div>
+
+<footer id="footer">
+    <div class="container">
+        <p><strong>KMSI42 - KM Service Informatique</strong></p>
+        <p style="margin-bottom: 1.5rem;">SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
+        <p class="footer-contact">E-mail : contact@kmsi42.fr</p>
+        <p style="font-size: 1.1rem; color: white;">📞 [Votre Numéro de Téléphone]</p>
+    </div>
+</footer>
+
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const icon = toggleBtn.querySelector('i');
+
+    // Vérifier le mode sombre préféré du système
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.setAttribute('data-theme', 'dark');
+        icon.className = 'fas fa-sun';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        if (body.hasAttribute('data-theme')) {
+            body.removeAttribute('data-theme');
+            icon.className = 'fas fa-moon';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.className = 'fas fa-sun';
+        }
+    });
+</script>
+
+</body>
+</html>
