@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMSI42 - Dépannage Informatique à Distance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.min.css">
+    <style>
+        :root { --primary: #0056b3; --secondary: #f8f9fa; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; }
+        header { background: var(--primary); color: white; padding: 4rem 1rem; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+        .btn { display: inline-block; background: #ffc107; color: #333; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .card { background: var(--secondary); padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .step { text-align: center; }
+        .step i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        section { padding: 3rem 0; border-bottom: 1px solid #eee; }
+        h2 { color: var(--primary); text-align: center; }
+        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; }
+        .price { font-size: 1.5rem; font-weight: bold; color: var(--primary); display: block; margin: 1rem 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>KMSI42 - Service Informatique</h1>
+    <p>Votre ordinateur est lent ou bloqué ? Je le répare à distance !</p>
+    <a href="mailto:contact@kmsi42.fr" class="btn">Demander un diagnostic gratuit</a>
+</header>
+
+<div class="container">
+    
+    <section id="comment-ca-marche">
+        <h2>Comment ça marche ?</h2>
+        <div class="grid">
+            <div class="step"><i class="fas fa-comments"></i><h3>1. Contact</h3><p>Expliquez-moi votre problème par mail ou téléphone.</p></div>
+            <div class="step"><i class="fas fa-desktop"></i><h3>2. Connexion</h3><p>Via un logiciel sécurisé, vous voyez tout ce que je fais sur votre écran.</p></div>
+            <div class="step"><i class="fas fa-rocket"></i><h3>3. Réparation</h3><p>Je nettoie et j'optimise votre système. Vous retrouvez un PC fluide !</p></div>
+        </div>
+    </section>
+
+    <section id="tarifs">
+        <h2>Prestations & Tarifs</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Pack "Coup de Jeune"</h3>
+                <p>Nettoyage virus/pubs, suppression fichiers inutiles, optimisation démarrage.</p>
+                <span class="price">49€</span>
+            </div>
+            <div class="card">
+                <h3>Pack "Dépannage"</h3>
+                <p>Réparation de bugs, installation de périphériques ou logiciels, mises à jour.</p>
+                <span class="price">Sur devis</span>
+            </div>
+            <div class="card">
+                <h3>Pack "Sécurité"</h3>
+                <p>Installation antivirus, protection des données et conseils anti-arnaques.</p>
+                <span class="price">39€</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="a-propos">
+        <h2>Qui suis-je ?</h2>
+        <p style="text-align: center;">Je suis technicien indépendant basé dans la Loire (42). Mon objectif est de vous proposer un dépannage transparent, humain et sans jargon technique. Spécialiste de la maintenance logicielle, j'interviens partout en France à distance.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 KMSI42 - Siret : [Votre SIRET] - TVA non applicable, art. 293 B du CGI</p>
+    <p>📧 contact@kmsi42.fr | 📞 [Ton Numéro de Téléphone]</p>
+</footer>
+
+</body>
+</html>
