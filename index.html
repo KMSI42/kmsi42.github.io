@@ -3,77 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMSI42 - Dépannage Informatique à Distance</title>
+    <title>KMSI42 | Dépannage Informatique à Distance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        :root { --primary: #0056b3; --secondary: #f8f9fa; --text: #333; --accent: #28a745; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text); margin: 0; }
-        header { background: var(--primary); color: white; padding: 4rem 1rem; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 2rem; }
-        .btn { display: inline-block; background: #ffc107; color: #333; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 0.5rem; transition: 0.3s; }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        :root { 
+            --primary: #0056b3; 
+            --dark: #002d5e;
+            --accent: #28a745; 
+            --warning: #ffc107;
+            --light: #f4f7f9;
+            --text: #333; 
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background-color: white; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+        /* Header avec Dégradé Moderne */
+        header { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); 
+            color: white; 
+            padding: 6rem 1rem; 
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .container { max-width: 1100px; margin: auto; padding: 2rem; }
+
+        /* Boutons avec effets */
+        .btn { 
+            display: inline-block; 
+            padding: 1rem 2rem; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            margin: 0.5rem; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-main { background: var(--warning); color: #222; }
         .btn-download { background: var(--accent); color: white; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .card { background: var(--secondary); padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
-        .step { text-align: center; }
-        .step i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-        section { padding: 3rem 0; border-bottom: 1px solid #eee; }
-        h2 { color: var(--primary); text-align: center; }
-        footer { background: #333; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem; font-size: 0.9rem; }
-        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); display: block; margin: 1rem 0; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); opacity: 0.95; }
+
+        /* Grilles et Cartes */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        
+        .card { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 15px; 
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+        .card:hover { border-color: var(--primary); transform: scale(1.02); }
+
+        .price { font-size: 2.2rem; font-weight: 700; color: var(--primary); display: block; margin: 1rem 0; }
+
+        /* Section Etapes */
+        .step i { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; display: block; }
+        
+        /* Badges de confiance */
+        .trust-badge {
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        section { padding: 5rem 0; }
+        .bg-light { background-color: var(--light); }
+
+        footer { background: #1a1a1a; color: #ccc; text-align: center; padding: 4rem 0; font-size: 0.9rem; }
+        .footer-contact { color: white; font-weight: 600; margin-top: 1rem; display: block; text-decoration: none;}
+
+        @media (max-width: 768px) { header { padding: 4rem 1rem; } }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>KMSI42 - Service Informatique</h1>
-    <p>Votre ordinateur est lent ou bloqué ? Je le répare à distance !</p>
-    <a href="mailto:contact@kmsi42.fr" class="btn">Demander un diagnostic gratuit</a>
-    <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> Télécharger l'outil de dépannage</a>
+    <div class="container">
+        <h1>KMSI42</h1>
+        <p style="font-size: 1.2rem; opacity: 0.9;">Dépannage Informatique & Optimisation à Distance</p>
+        <div style="margin-top: 2.5rem;">
+            <a href="mailto:contact@kmsi42.fr" class="btn btn-main"><i class="fas fa-envelope"></i> Diagnostic Gratuit</a>
+            <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.8;">Outil sécurisé, sans installation requise.</p>
+    </div>
 </header>
 
 <div class="container">
     
-    <section id="comment-ca-marche">
-        <h2>Comment ça marche ?</h2>
-        <div class="grid">
-            <div class="step"><i class="fas fa-comments"></i><h3>1. Contact</h3><p>Expliquez-moi votre problème par mail ou téléphone.</p></div>
-            <div class="step"><i class="fas fa-lock"></i><h3>2. Connexion</h3><p>Grâce à RustDesk, vous me donnez l'accès sécurisé à votre écran.</p></div>
-            <div class="step"><i class="fas fa-check-circle"></i><h3>3. Terminé !</h3><p>Je répare votre PC en direct. Une fois fini, je me déconnecte.</p></div>
+    <section id="confiance">
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="trust-badge"><i class="fas fa-shield-alt text-primary"></i> 100% Sécurisé</div>
+            <div class="trust-badge"><i class="fas fa-euro-sign text-primary"></i> Pas de succès, pas de frais</div>
+            <div class="trust-badge"><i class="fas fa-bolt text-primary"></i> Intervention Rapide</div>
         </div>
     </section>
 
-    <section id="tarifs">
-        <h2>Prestations & Tarifs</h2>
+    <section id="process">
+        <h2>Une réparation en 3 étapes</h2>
+        <div class="grid">
+            <div class="card step">
+                <i class="fas fa-phone-alt"></i>
+                <h3>1. Contact</h3>
+                <p>On échange sur votre problème par mail ou téléphone.</p>
+            </div>
+            <div class="card step">
+                <i class="fas fa-user-shield"></i>
+                <h3>2. Accès</h3>
+                <p>Vous m'ouvrez un accès temporaire. Vous gardez le contrôle total.</p>
+            </div>
+            <div class="card step">
+                <i class="fas fa-magic"></i>
+                <h3>3. Solution</h3>
+                <p>Je répare, je nettoie et je vous rends un PC comme neuf !</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="bg-light">
+    <div class="container">
+        <h2>Mes Services & Tarifs</h2>
         <div class="grid">
             <div class="card">
                 <h3>Pack "Coup de Jeune"</h3>
-                <p>Nettoyage complet, suppression virus/pubs et optimisation de la vitesse.</p>
+                <p>Nettoyage complet, suppression des pubs, accélération du démarrage.</p>
                 <span class="price">30€</span>
+                <p><small>Idéal pour PC lent</small></p>
             </div>
-            <div class="card">
+            <div class="card" style="border-top-color: var(--warning);">
                 <h3>Pack "Dépannage"</h3>
-                <p>Réparation de bugs précis, installation de logiciels ou d'imprimante.</p>
+                <p>Bugs Windows, installation imprimante, logiciels, aide technique.</p>
                 <span class="price">Sur devis</span>
+                <p><small>Prise en charge immédiate</small></p>
             </div>
             <div class="card">
                 <h3>Pack "Sécurité"</h3>
-                <p>Protection de vos données, antivirus et conseils anti-arnaques.</p>
+                <p>Antivirus, sauvegarde, protection de vos comptes et données.</p>
                 <span class="price">20€</span>
+                <p><small>Prévention arnaques</small></p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<div class="container">
     <section id="a-propos">
-        <h2>Qui suis-je ?</h2>
-        <p style="text-align: center; max-width: 700px; margin: auto;">Je suis technicien indépendant basé dans la Loire (42). Mon objectif est de vous proposer un dépannage transparent, humain et sans jargon technique. Spécialiste de la maintenance logicielle, j'interviens partout en France à distance.</p>
+        <div class="card" style="max-width: 800px; margin: auto; border: none;">
+            <h2>Votre technicien dans la Loire (42)</h2>
+            <p>Spécialiste de la maintenance logicielle, je mets mon expertise à votre service pour prolonger la vie de votre matériel. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran, en toute transparence.</p>
+        </div>
     </section>
-
 </div>
 
 <footer>
-    <p>&copy; 2026 KMSI42 - SIRET : 994 290 328 - TVA non applicable, art. 293 B du CGI</p>
-    <p>📧 contact@kmsi42.fr | 📞 [Votre numéro de téléphone]</p>
+    <div class="container">
+        <p><strong>KMSI42 - KM Service Informatique</strong></p>
+        <p>SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
+        <a href="mailto:contact@kmsi42.fr" class="footer-contact">contact@kmsi42.fr</a>
+        <p>📞 [Votre Numéro ici]</p>
+        <p style="margin-top: 2rem; font-size: 0.7rem; opacity: 0.5;">Fait avec passion pour un web plus rapide.</p>
+    </div>
 </footer>
 
 </body>
