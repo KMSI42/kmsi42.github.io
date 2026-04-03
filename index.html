@@ -163,4 +163,67 @@
                 <p>Bugs spécifiques, installation de logiciels, d'imprimantes ou aide technique variée.</p>
                 <div class="price">Sur devis</div>
                 <ul style="list-style: none; font-size: 0.9rem; text-align: left; max-width: 200px; margin: 0 auto;">
-                    <li><i class="fas fa-check" style="color: var(--success);"></i> Solution
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Solution ciblée</li>
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Devis gratuit</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2>Besoin d'aide ? Contactez-moi</h2>
+            <div class="underline"></div>
+            <p>Réponse rapide garantie</p>
+        </div>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/mlgopnpp" method="POST">
+                <div class="form-group">
+                    <label>Nom complet</label>
+                    <input type="text" name="name" placeholder="Jean Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label>Votre Email</label>
+                    <input type="email" name="_replyto" placeholder="jean@exemple.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Type de problème</label>
+                    <select name="service">
+                        <option value="lent">PC très lent / Pubs</option>
+                        <option value="virus">Virus suspecté</option>
+                        <option value="autre">Autre problème technique</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Description du souci</label>
+                    <textarea name="message" rows="5" placeholder="Expliquez-moi brièvement ce qui se passe..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>&copy; 2026 KMSI Services Informatique</strong></p>
+        <p style="font-size: 0.85rem; margin-top: 5px;">SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
+        <p style="font-size: 0.85rem; margin-top: 5px;">📧 E-mail : kmsidevis@gmail.com | 📞 [0601863741]</p>
+        <p style="font-size: 0.75rem; margin-top: 15px; opacity: 0.6;">Intervention à distance via RustDesk - Confidentialité et sécurité garanties.</p>
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        });
+    </script>
+
+</body>
+</html>
