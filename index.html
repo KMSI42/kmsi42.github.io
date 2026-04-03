@@ -3,196 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMSI42 | Dépannage Informatique à Distance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>KMSI - Dépannage PC à Distance & Optimisation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        /* VARIABLES DE BASE (MODE CLAIR) */
-        :root { 
-            --bg-body: #ffffff;
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --light: #f8fafc;
+            --bg-body: #f8fafc;
             --bg-card: #ffffff;
-            --bg-light: #f4f7f9;
-            --text-main: #333333;
-            --border-color: #eeeeee;
-            --primary: #0056b3;
-            --header-gradient: linear-gradient(135deg, #0056b3 0%, #002d5e 100%);
-            --title-glow: none;
-            --warning: #ffc107;
-            --accent: #28a745;
+            --text-main: #334155;
+            --border-color: #e2e8f0;
+            --hero-overlay: rgba(30, 41, 59, 0.9);
         }
 
-        /* VARIABLES MODE SOMBRE */
+        /* Variables MODE SOMBRE */
         body.dark-mode {
-            --bg-body: #0a0a0c;
-            --bg-card: #141417;
-            --bg-light: #0f0f11;
-            --text-main: #e0e0e0;
-            --border-color: #2a2a2e;
-            --header-gradient: linear-gradient(125deg, #001f4d 0%, #000000 40%, #1a0033 70%, #00331a 100%);
-            --title-glow: 0 0 15px rgba(0, 123, 255, 0.7);
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #cbd5e1;
+            --border-color: #334155;
+            --light: #0f172a;
+            --hero-overlay: rgba(15, 23, 42, 0.95);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
-        body { font-family: 'Open Sans', sans-serif; line-height: 1.5; color: var(--text-main); margin: 0; background-color: var(--bg-body); }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin-bottom: 1rem; }
-
-        header { 
-            background: var(--header-gradient);
-            background-size: 200% 200%;
-            animation: nebulaAnimation 15s ease infinite;
-            color: white; padding: 4rem 1rem; text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
-        }
-
-        @keyframes nebulaAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container { max-width: 1000px; margin: auto; padding: 1rem 2rem; }
-
-        .glitch-title {
-            font-size: 3.5rem; font-weight: 800; text-transform: uppercase; margin: 0;
-            text-shadow: var(--title-glow);
-        }
-
-        .btn { 
-            display: inline-block; padding: 0.9rem 2rem; text-decoration: none; border-radius: 50px; 
-            font-weight: 600; margin: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .btn-main { background: var(--warning); color: #222; }
-        .btn-download { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
-        body.dark-mode .btn-download { color: white; border-color: white; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s; }
         
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        header { background: var(--secondary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         
-        .card { 
-            background: var(--bg-card); padding: 1.8rem; border-radius: 12px; text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center; color: white; padding: 80px 5%; text-align: center; 
         }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: white; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; color: #e2e8f0; }
+        .btn { background: var(--primary); color: white !important; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; }
+        .btn:hover { background: var(--accent); transform: translateY(-2px); cursor: pointer; }
 
-        .price { font-size: 2.2rem; font-weight: 700; color: var(--primary); display: block; margin: 0.5rem 0; }
+        /* Services */
+        .section { padding: 60px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2rem; color: var(--primary); }
+        body.dark-mode .section-title h2 { color: white; }
+        .section-title .underline { width: 50px; height: 4px; background: var(--primary); margin: 10px auto; }
 
-        .step i { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; display: block; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--bg-card); padding: 30px; border-radius: 10px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transition: 0.3s; border: 1px solid var(--border-color); border-top: 5px solid var(--primary); text-align: center; }
+        .card:hover { transform: translateY(-5px); }
+        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; color: var(--primary); }
+        body.dark-mode .card h3 { color: white; }
+        .price { font-size: 2rem; font-weight: bold; color: var(--primary); margin: 15px 0; }
+        body.dark-mode .price { color: var(--accent); }
+
+        /* How it works */
+        .steps { background: var(--bg-card); display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; border-radius: 10px; padding: 20px 0; border: 1px solid var(--border-color); }
+        .step { flex: 1; min-width: 200px; padding: 20px; }
+        .step-num { width: 40px; height: 40px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
+
+        /* Contact Form */
+        .contact-container { max-width: 600px; margin: 0 auto; background: var(--bg-card); padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid var(--border-color); }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main); }
         
-        .trust-badge {
-            background: var(--bg-card); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);
-            display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 0.9rem;
-        }
+        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; margin-top: 40px; }
 
-        section { padding: 3rem 0; }
-        .bg-light { background-color: var(--bg-light); }
-
-        footer { background: #000; color: #aaa; text-align: center; padding: 4rem 0; font-size: 0.85rem; }
-        .footer-contact { color: white; font-weight: 600; text-decoration: none; display: block; margin-bottom: 0.8rem;}
-
+        /* Bouton Mode Sombre Flottant */
         #theme-toggle {
             position: fixed; bottom: 25px; right: 25px; background: var(--primary); color: white; border: none;
             width: 55px; height: 55px; border-radius: 50%; cursor: pointer; font-size: 1.3rem; z-index: 1000;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .steps { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<button id="theme-toggle"><i class="fas fa-moon"></i></button>
+    <button id="theme-toggle" title="Changer de mode"><i class="fas fa-moon"></i></button>
 
-<header>
-    <div class="container">
-        <h1 class="glitch-title">KMSI42</h1>
-        <p style="font-size: 1.2rem; opacity: 0.9; margin: 0.8rem 0 2rem 0;">Dépannage & Optimisation Informatique à Distance</p>
-        <a href="#footer" class="btn btn-main">Me contacter</a>
-        <a href="https://rustdesk.com/" target="_blank" class="btn btn-download"><i class="fas fa-rocket"></i> Télécharger RustDesk</a>
-    </div>
-</header>
+    <header>
+        <a href="#" class="logo">KMSI <span>Services</span></a>
+        <nav>
+            <a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold;">Tarifs</a>
+        </nav>
+    </header>
 
-<div class="container">
-    <section>
-        <h2 style="text-align: center;">Réparation Express en 3 Étapes</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-phone-alt" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block;"></i>
-                <h3>1. Contact</h3>
-                <p>On échange sur votre problème par téléphone ou message.</p>
+    <section class="hero">
+        <h1>Votre PC est lent ? Je le répare à distance.</h1>
+        <p>Optimisation système, suppression de virus et nettoyage complet sans bouger de chez vous. Rapide, sécurisé et transparent.</p>
+        <a href="#contact" class="btn"><i class="fas fa-plug"></i> Demander un diagnostic gratuit</a>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <h2>Comment ça marche ?</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Diagnostic</h3>
+                <p>On discute de votre problème par message ou téléphone.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-user-shield" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block;"></i>
-                <h3>2. Accès</h3>
-                <p>Via RustDesk, vous m'ouvrez un accès sécurisé temporaire.</p>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Connexion</h3>
+                <p>Vous lancez RustDesk (sécurisé). Je prends la main temporairement.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-magic" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; display: block;"></i>
-                <h3>3. Solution</h3>
-                <p>Je répare et j'optimise. Vous retrouvez un PC performant !</p>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Résultat</h3>
+                <p>Je nettoie votre PC sous vos yeux. Vous ne payez qu'une fois terminé.</p>
             </div>
         </div>
     </section>
-</div>
 
-<section class="bg-light">
-    <div class="container">
-        <h2 style="text-align: center;">Mes Services & Tarifs</h2>
-        <div class="grid">
+    <section class="section" style="background: var(--light);" id="tarifs">
+        <div class="section-title">
+            <h2>Mes Forfaits</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="services-grid">
             <div class="card">
-                <h3>Pack "Coup de Jeune"</h3>
-                <p>Nettoyage complet, suppression virus et accélération système.</p>
-                <span class="price">30€</span>
-            </div>
-            <div class="card" style="border-top: 4px solid var(--warning);">
-                <h3>Pack "Dépannage"</h3>
-                <p>Bugs Windows, logiciels, périphériques, aide technique.</p>
-                <span class="price">Sur devis</span>
+                <i class="fas fa-broom"></i>
+                <h3>Nettoyage Express</h3>
+                <p>Suppression des publicités, fichiers temporaires et optimisation du démarrage.</p>
+                <div class="price">30 €</div>
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left; max-width: 200px; margin: 0 auto;">
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Gain de vitesse</li>
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Nettoyage navigateurs</li>
+                </ul>
             </div>
             <div class="card">
-                <h3>Pack "Sécurité"</h3>
-                <p>Protection données, sauvegardes et conseils anti-arnaques.</p>
-                <span class="price">20€</span>
+                <i class="fas fa-shield-virus"></i>
+                <h3>Sécurité & Virus</h3>
+                <p>Suppression approfondie des virus, malwares et installation d'outils de protection.</p>
+                <div class="price">20 €</div>
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left; max-width: 200px; margin: 0 auto;">
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Scan complet</li>
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Conseils anti-arnaques</li>
+                </ul>
             </div>
-        </div>
-    </div>
-</section>
-
-<div class="container">
-    <section id="a-propos">
-        <div style="text-align: center; max-width: 750px; margin: auto;">
-            <h2>Expertise & Proximité</h2>
-            <p>Technicien indépendant basé dans la Loire (42), j'interviens partout en France. Pas de déplacement, pas d'attente : tout se passe en direct sur votre écran.</p>
-        </div>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2rem;">
-            <div class="trust-badge"><i class="fas fa-shield-alt" style="color:var(--primary)"></i> 100% Sécurisé</div>
-            <div class="trust-badge"><i class="fas fa-check-circle" style="color:var(--primary)"></i> Satisfait ou Remboursé</div>
-            <div class="trust-badge"><i class="fas fa-bolt" style="color:var(--primary)"></i> Intervention Rapide</div>
-        </div>
-    </section>
-</div>
-
-<footer id="footer">
-    <div class="container">
-        <p><strong>KMSI42 - KM Service Informatique</strong></p>
-        <p>SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI</p>
-        <p class="footer-contact">E-mail : contact@kmsi42.fr</p>
-        <p style="font-size: 1.1rem; color: white;">📞 [0600000000]</p>
-    </div>
-</footer>
-
-<script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn.querySelector('i');
-
-    toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        
-        if (document.body.classList.contains('dark-mode')) {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
-        }
-    });
-</script>
-
-</body>
-</html>
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>Pack Sur-Mesure</h3>
+                <p>Bugs spécifiques, installation de logiciels, d'imprimantes ou aide technique variée.</p>
+                <div class="price">Sur devis</div>
+                <ul style="list-style: none; font-size: 0.9rem; text-align: left; max-width: 200px; margin: 0 auto;">
+                    <li><i class="fas fa-check" style="color: var(--success);"></i> Solution
