@@ -11,7 +11,6 @@
             --secondary: #1e293b;
             --accent: #3b82f6;
             --success: #10b981;
-            /* Couleurs adoucies pour le mode clair */
             --light: #f1f5f9; 
             --bg-body: #f1f5f9; 
             --bg-card: #ffffff;
@@ -43,8 +42,24 @@
         #theme-toggle {
             background: var(--primary); color: white; border: none;
             width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-left: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-left: 15px; position: relative;
         }
+
+        /* Animation de la flèche du mode sombre */
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(-10px); opacity: 0.5; }
+        }
+
+        .dark-mode-indicator {
+            position: absolute; right: 100%; top: 50%; transform: translateY(-50%);
+            margin-right: 15px; color: var(--primary); font-size: 2rem;
+            display: flex; align-items: center; gap: 10px; white-space: nowrap;
+            font-weight: bold; font-style: italic;
+            animation: arrowBounce 1.5s infinite; pointer-events: none;
+        }
+        body.dark-mode .dark-mode-indicator { color: var(--accent); }
+        .dark-mode-indicator span { font-size: 0.9rem; }
 
         .hero { 
             background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -69,7 +84,7 @@
             margin: 0 auto; 
         }
 
-        .expertise-sidebar { flex: 1; }
+        .expertise-sidebar { flex: 1; transition: flex 0.3s; }
         .form-main { flex: 2; }
 
         .card { 
@@ -86,6 +101,18 @@
         .card ul { list-style: none; display: inline-block; text-align: left; padding: 0; margin-top: 10px; }
         .card li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .card li i { font-size: 0.9rem; color: var(--success); flex-shrink: 0; }
+
+        /* Styles spécifiques pour Expertise Diverse sur PC */
+        @media (min-width: 1151px) {
+            .contact-layout .expertise-sidebar {
+                flex: 0 0 calc(33.33% - 20px); /* Aligné sur la largeur d'une colonne de la grille du haut */
+            }
+            .expertise-sidebar .card i { font-size: 3.5rem; }
+            .expertise-sidebar .card h3 { font-size: 1.6rem; }
+            .expertise-sidebar .card .price { font-size: 2.2rem; }
+            .expertise-sidebar .card li { font-size: 1rem; gap: 12px; margin-bottom: 12px; }
+            .expertise-sidebar .card li i { font-size: 1rem; }
+        }
 
         .contact-container { background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); position: relative; width: 100%; box-shadow: 0 4px 20px -5px rgba(0,0,0,0.08); }
         .form-group { margin-bottom: 25px; text-align: left; position: relative; }
@@ -117,6 +144,7 @@
             .contact-layout { flex-direction: column; align-items: center; }
             .expertise-sidebar, .form-main { width: 100%; max-width: 650px; }
             .form-note { position: static; transform: none; width: 100%; margin-top: 8px; padding-left: 5px; margin-bottom: 5px; }
+            .dark-mode-indicator { display: none; } /* Masquer l'indicateur sur mobile */
         }
     </style>
 </head>
@@ -129,7 +157,13 @@
         </a>
         <nav style="display: flex; align-items: center;">
             <a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Tarifs</a>
-            <button id="theme-toggle" title="Mode Sombre/Clair"><i class="fas fa-moon"></i></button>
+            <button id="theme-toggle" title="Mode Sombre/Clair">
+                <div class="dark-mode-indicator">
+                    <i class="fas fa-long-arrow-alt-right"></i>
+                    <span>Mode sombre au besoin</span>
+                </div>
+                <i class="fas fa-moon"></i>
+            </button>
         </nav>
     </header>
 
@@ -248,7 +282,7 @@
 
     <footer>
         <p><strong>&copy; 2026 KMSI Services</strong></p>
-        <p style="font-size: 0.85rem; margin-top: 10px; letter-spacing: 0.3px;">📧 E-mail : kmsidevis@gmail.com | 📞 06 01 86 37 41 (SMS Uniquement)</p>
+        <p style="font-size: 0.85rem; margin-top: 10px; letter-spacing: 0.3px;">📧 E-mail : kmsidevis@gmail.com | 📞 XX XX XX XX XX (SMS Uniquement)</p>
     </footer>
 
     <script>
