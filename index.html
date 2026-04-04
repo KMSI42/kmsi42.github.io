@@ -11,11 +11,12 @@
             --secondary: #1e293b;
             --accent: #3b82f6;
             --success: #10b981;
-            --light: #f8fafc;
-            --bg-body: #f8fafc;
+            /* Couleurs adoucies pour le mode clair */
+            --light: #f1f5f9; 
+            --bg-body: #f1f5f9; 
             --bg-card: #ffffff;
             --text-main: #334155;
-            --border-color: #e2e8f0;
+            --border-color: #cbd5e1;
             --hero-overlay: rgba(30, 41, 59, 0.9);
         }
 
@@ -28,11 +29,11 @@
             --hero-overlay: rgba(15, 23, 42, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.4s, color 0.3s; }
         
         body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.5; }
 
-        header { background: var(--secondary); color: white; padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--secondary); color: white; padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-img { height: 40px; width: auto; border-radius: 5px; }
@@ -47,25 +48,23 @@
 
         .hero { 
             background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center; color: white; padding: 50px 5%; text-align: center; 
+            background-size: cover; background-position: center; color: white; padding: 60px 5%; text-align: center; 
         }
         .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: white; }
         .hero p { font-size: 1.1rem; margin-bottom: 25px; max-width: 700px; margin: 0 auto; color: #e2e8f0; }
 
-        .section { padding: 40px 5%; }
-        .section-title { text-align: center; margin-bottom: 30px; }
+        .section { padding: 50px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
         .section-title h2 { font-size: 1.8rem; color: var(--primary); }
         body.dark-mode .section-title h2 { color: white; }
         .underline { width: 40px; height: 4px; background: var(--primary); margin: 8px auto; }
 
-        /* Grille des 3 premiers packs */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
         
-        /* Layout Contact : Expertise à gauche, Formulaire à droite */
         .contact-layout { 
             display: flex; 
             gap: 30px; 
-            align-items: flex-start; 
+            align-items: stretch; 
             max-width: 1200px; 
             margin: 0 auto; 
         }
@@ -74,50 +73,50 @@
         .form-main { flex: 2; }
 
         .card { 
-            background: var(--bg-card); padding: 25px 15px; border-radius: 10px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: 0.3s; 
-            border: 1px solid var(--border-color); border-top: 4px solid var(--primary); 
+            background: var(--bg-card); padding: 30px 20px; border-radius: 12px; 
+            box-shadow: 0 4px 20px -5px rgba(0,0,0,0.08); transition: 0.3s; 
+            border: 1px solid var(--border-color); border-top: 5px solid var(--primary); 
             text-align: center; position: relative; cursor: pointer;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15); border-color: var(--primary); }
-        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.1rem; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -10px rgba(0,0,0,0.15); border-color: var(--primary); }
+        .card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; }
+        .card h3 { margin-bottom: 12px; color: var(--primary); font-size: 1.2rem; }
         body.dark-mode .card h3 { color: white; }
-        .price { font-size: 1.6rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
+        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
         .card ul { list-style: none; display: inline-block; text-align: left; padding: 0; margin-top: 10px; }
-        .card li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.85rem; }
-        .card li i { font-size: 0.85rem; color: var(--success); flex-shrink: 0; }
+        .card li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
+        .card li i { font-size: 0.9rem; color: var(--success); flex-shrink: 0; }
 
-        /* Formulaire */
-        .contact-container { background: var(--bg-card); padding: 30px; border-radius: 10px; border: 1px solid var(--border-color); position: relative; width: 100%; }
-        .form-group { margin-bottom: 20px; text-align: left; position: relative; }
-        label { display: block; margin-bottom: 6px; font-weight: bold; font-size: 0.9rem; }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main); font-size: 1rem; }
+        .contact-container { background: var(--bg-card); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); position: relative; width: 100%; box-shadow: 0 4px 20px -5px rgba(0,0,0,0.08); }
+        .form-group { margin-bottom: 25px; text-align: left; position: relative; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: var(--secondary); }
+        body.dark-mode label { color: #cbd5e1; }
+        input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-body); color: var(--text-main); font-size: 1rem; outline: none; }
+        input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
         
-        /* Flèches d'indication */
         .form-note { 
-            position: absolute; left: 103%; top: 50%; transform: translateY(-50%);
-            width: 220px; font-size: 0.75rem; color: var(--primary); text-align: left;
+            position: absolute; left: 105%; top: 50%; transform: translateY(-50%);
+            width: 230px; font-size: 0.75rem; color: var(--primary); text-align: left;
             font-style: italic; display: flex; align-items: center; gap: 8px; font-weight: 500;
         }
         body.dark-mode .form-note { color: var(--accent); }
 
-        .btn { background: var(--primary); color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; font-size: 1rem; cursor: pointer; width: 100%; }
-        .btn:hover { background: var(--accent); transform: translateY(-2px); }
+        .btn { background: var(--primary); color: white !important; padding: 14px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; font-size: 1rem; cursor: pointer; width: 100%; }
+        .btn:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3); }
 
         .payment-logo { height: 70px; width: auto; object-fit: contain; margin-bottom: 10px; border-radius: 8px; }
-        .payment-container { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; text-align: center; }
-        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.9rem; }
+        .payment-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; text-align: center; }
+        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.95rem; }
         .paypal-btn.donation { background: #0070ba; color: white !important; }
 
-        .legal-section { font-size: 0.75rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 30px; text-align: center; }
+        .legal-section { font-size: 0.8rem; opacity: 0.8; border-top: 1px solid var(--border-color); padding-top: 25px; margin-top: 40px; text-align: center; color: var(--text-main); }
         
-        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 30px 5%; margin-top: 30px; }
+        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; }
 
-        @media (max-width: 1050px) { 
+        @media (max-width: 1150px) { 
             .contact-layout { flex-direction: column; align-items: center; }
-            .expertise-sidebar, .form-main { width: 100%; max-width: 600px; }
-            .form-note { position: static; transform: none; width: 100%; margin-top: 5px; padding-left: 5px; }
+            .expertise-sidebar, .form-main { width: 100%; max-width: 650px; }
+            .form-note { position: static; transform: none; width: 100%; margin-top: 8px; padding-left: 5px; margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -140,7 +139,7 @@
         <a href="#contact" class="btn" style="width: auto;">Demander un devis gratuit</a>
     </section>
 
-    <section class="section" style="background: var(--light);" id="tarifs">
+    <section class="section" id="tarifs">
         <div class="section-title">
             <h2>Mes Forfaits & Services</h2>
             <div class="underline"></div>
@@ -167,8 +166,8 @@
                     <li><i class="fas fa-check"></i> Désinstallation logiciels inutilisés</li>
                 </ul>
             </div>
-            <div class="card" onclick="selectOffer('complet')" style="border: 2px solid var(--primary);">
-                <div style="background: var(--success); color: white; font-size: 0.65rem; padding: 3px 8px; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); border-radius: 20px; font-weight: bold;">INCLUS PACKS PRÉCÉDENTS</div>
+            <div class="card" onclick="selectOffer('complet')" style="border: 2px solid var(--primary); border-top: 5px solid var(--primary);">
+                <div style="background: var(--success); color: white; font-size: 0.65rem; padding: 4px 10px; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); border-radius: 20px; font-weight: bold; letter-spacing: 0.5px;">INCLUS PACKS PRÉCÉDENTS</div>
                 <i class="fas fa-rocket"></i>
                 <h3>Pack Complet</h3>
                 <div class="price">50 €</div>
@@ -184,17 +183,17 @@
         <div class="contact-layout" id="contact">
             
             <div class="expertise-sidebar">
-                <div class="card" onclick="selectOffer('expert')" style="height: 100%;">
+                <div class="card" onclick="selectOffer('expert')" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
                     <i class="fas fa-tools"></i>
                     <h3>Expertise Diverse</h3>
                     <div class="price">Sur Devis</div>
-                    <ul style="margin-bottom: 20px;">
+                    <ul style="margin-bottom: 25px;">
                         <li><i class="fas fa-check"></i> Dépoussiérage & Cable Management</li>
                         <li><i class="fas fa-check"></i> Domotique, Wi-Fi & Imprimantes</li>
                         <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
                         <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43 uniquement</b></li>
                     </ul>
-                    <p style="font-size: 0.8rem; opacity: 0.8;">Utilisez le formulaire ci-contre pour toute demande spécifique.</p>
+                    <p style="font-size: 0.85rem; opacity: 0.8; font-style: italic;">Utilisez le formulaire ci-contre pour toute demande spécifique.</p>
                 </div>
             </div>
 
@@ -231,10 +230,10 @@
                     <div class="payment-container">
                         <div class="underline" style="margin: 15px auto;"></div>
                         <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
-                        <p style="font-weight: bold; font-size: 0.9rem;">Règlement sécurisé après intervention :</p>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn" style="flex: 1; min-width: 150px;"><i class="fab fa-paypal"></i> Payer la prestation</a>
-                            <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation" style="flex: 1; min-width: 150px;"><i class="fas fa-heart"></i> Pourboire / Don</a>
+                        <p style="font-weight: bold; font-size: 0.95rem;">Règlement sécurisé après intervention :</p>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn" style="flex: 1; min-width: 160px;"><i class="fab fa-paypal"></i> Payer la prestation</a>
+                            <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation" style="flex: 1; min-width: 160px;"><i class="fas fa-heart"></i> Pourboire / Don</a>
                         </div>
                     </div>
                 </div>
@@ -243,13 +242,13 @@
 
         <div class="legal-section">
             <p><strong>KMSI Services</strong> | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.</p>
-            <p>Les données collectées sont uniquement destinées au traitement de votre demande.</p>
+            <p style="margin-top: 5px;">Les données collectées sont uniquement destinées au traitement de votre demande de dépannage.</p>
         </div>
     </section>
 
     <footer>
         <p><strong>&copy; 2026 KMSI Services</strong></p>
-        <p style="font-size: 0.85rem; margin-top: 5px;">📧 E-mail : kmsidevis@gmail.com | 📞 06 01 86 37 41 (SMS Uniquement)</p>
+        <p style="font-size: 0.85rem; margin-top: 10px; letter-spacing: 0.3px;">📧 E-mail : kmsidevis@gmail.com | 📞 06 01 86 37 41 (SMS Uniquement)</p>
     </footer>
 
     <script>
