@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMSI - Dépannage PC & Expertise Hardware</title>
+    <title>KMSI - Assistance Informatique & Expertise Diverse</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -74,7 +74,7 @@
         .price { font-size: 1.6rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
 
         .card ul { list-style: none; display: inline-block; text-align: left; padding: 0; margin-top: 10px; }
-        .card li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.85rem; white-space: nowrap; }
+        .card li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.85rem; }
         .card li i { font-size: 0.85rem; color: var(--success); flex-shrink: 0; }
 
         .contact-container { max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border-color); text-align: center; }
@@ -86,6 +86,9 @@
         .payment-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
         .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.9rem; transition: 0.3s; }
         .paypal-btn.donation { background: #0070ba; color: white !important; }
+
+        .legal-section { font-size: 0.75rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 30px; text-align: left; }
+        .legal-section h4 { margin-bottom: 5px; }
 
         footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 30px 5%; margin-top: 30px; }
 
@@ -110,7 +113,7 @@
     </header>
 
     <section class="hero">
-        <h1>Assistance Informatique & Expertise Hardware</h1>
+        <h1>Assistance Informatique & Expertise Diverse</h1>
         <p>Intervention à distance ou à domicile dans la Loire (42) et Haute-Loire (43).</p>
         <a href="#contact" class="btn"><i class="fas fa-plug"></i> Demander un devis gratuit</a>
     </section>
@@ -139,27 +142,29 @@
                 <ul>
                     <li><i class="fas fa-check"></i> Optimisation Démarrage</li>
                     <li><i class="fas fa-check"></i> Suppression des Fichiers Inutiles</li>
-                    <li><i class="fas fa-check"></i> Désinstallation logiciels non utilisé</li>
+                    <li><i class="fas fa-check"></i> Désinstallation logiciels inutilisés</li>
                 </ul>
             </div>
-            <div class="card" onclick="selectOffer('optimal')">
+            <div class="card" onclick="selectOffer('complet')" style="border: 2px solid var(--primary);">
+                <div style="background: var(--success); color: white; font-size: 0.65rem; padding: 3px 8px; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); border-radius: 20px; font-weight: bold;">INCLUS PACKS PRÉCÉDENTS</div>
                 <i class="fas fa-rocket"></i>
-                <h3>Pack Optimal</h3>
+                <h3>Pack Complet</h3>
                 <div class="price">50 €</div>
                 <ul>
                     <li><i class="fas fa-star" style="color: #f59e0b;"></i> <b>Script Automatique + Nettoyage Complet</b></li>
-                    <li><i class="fas fa-check"></i> MAJ Pilotes & Windows</li>
+                    <li><i class="fas fa-check"></i> Mise à jour Pilotes & Windows</li>
                     <li><i class="fas fa-check"></i> Performances optimales PC</li>
+                    <li><i class="fas fa-plus-circle"></i> <b>Inclus : Packs Désinfection & Boost</b></li>
                 </ul>
             </div>
             <div class="card" onclick="selectOffer('expert')">
                 <i class="fas fa-tools"></i>
-                <h3>Expertise & Domicile</h3>
+                <h3>Expertise Diverse</h3>
                 <div class="price">Sur Devis</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> Montage PC & Cable Management</li>
+                    <li><i class="fas fa-check"></i> Dépoussiérage PC</li>
                     <li><i class="fas fa-check"></i> Domotique, Wi-Fi & Imprimantes</li>
-                    <li><i class="fas fa-check"></i> Récupération de données</li>
+                    <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
                     <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43</b></li>
                 </ul>
             </div>
@@ -182,8 +187,8 @@
                     <select name="service" id="serviceSelect">
                         <option value="désinfection">Désinfection (Virus) - 25€</option>
                         <option value="boost">Boost Rapide - 35€</option>
-                        <option value="optimal">Pack Optimal - 50€</option>
-                        <option value="expert">Expertise & Domicile (Sur Devis)</option>
+                        <option value="complet">Pack Complet - 50€</option>
+                        <option value="expert">Expertise Diverse (Sur Devis)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -200,13 +205,21 @@
                 <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn"><i class="fab fa-paypal"></i> Payer la prestation</a>
                 <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation"><i class="fas fa-heart"></i> Pourboire / Don</a>
             </div>
+
+            <div class="legal-section">
+                <h4>Mentions Légales</h4>
+                <p><strong>Auto-entrepreneur :</strong> KMSI Services</p>
+                <p><strong>SIRET :</strong> 994 290 328</p>
+                <p><strong>Dispositions fiscales :</strong> TVA non applicable, art. 293 B du CGI.</p>
+                <p><strong>Confidentialité :</strong> Les données collectées via ce formulaire sont uniquement destinées au traitement de votre demande de dépannage.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <p><strong>&copy; 2026 KMSI Services</strong></p>
         <p style="font-size: 0.85rem; margin-top: 5px;">📧 E-mail : kmsidevis@gmail.com</p>
-        <p style="font-size: 0.75rem; margin-top: 5px;">SIRET : 994 290 328 | 📞 06 01 86 37 41 (SMS Uniquement)</p>
+        <p style="font-size: 0.75rem; margin-top: 5px;">📞 06 01 86 37 41 (SMS Uniquement)</p>
     </footer>
 
     <script>
