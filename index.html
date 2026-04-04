@@ -39,12 +39,19 @@
         .logo-text { font-size: 1.4rem; font-weight: bold; color: white; }
         .logo-text span { color: var(--accent); }
 
+        /* Bouton Theme en Haut à Droite */
+        #theme-toggle {
+            background: var(--primary); color: white; border: none;
+            width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); margin-left: 15px;
+        }
+
         .hero { 
             background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center; color: white; padding: 50px 5%; text-align: center; 
         }
         .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: white; }
-        .hero p { font-size: 1.1rem; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; color: #e2e8f0; }
+        .hero p { font-size: 1.1rem; margin-bottom: 25px; max-width: 700px; margin: 0 auto; color: #e2e8f0; }
         .btn { background: var(--primary); color: white !important; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; font-size: 0.95rem; cursor: pointer; }
         .btn:hover { background: var(--accent); transform: translateY(-2px); }
 
@@ -56,16 +63,10 @@
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .card { 
-            background: var(--bg-card); 
-            padding: 25px 15px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
-            transition: 0.3s; 
-            border: 1px solid var(--border-color); 
-            border-top: 4px solid var(--primary); 
-            text-align: center; 
-            position: relative; 
-            cursor: pointer;
+            background: var(--bg-card); padding: 25px 15px; border-radius: 10px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: 0.3s; 
+            border: 1px solid var(--border-color); border-top: 4px solid var(--primary); 
+            text-align: center; position: relative; cursor: pointer;
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15); border-color: var(--primary); }
         .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
@@ -77,39 +78,42 @@
         .card li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.85rem; }
         .card li i { font-size: 0.85rem; color: var(--success); flex-shrink: 0; }
 
-        .contact-container { max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border-color); text-align: center; }
-        .form-group { margin-bottom: 12px; text-align: left; }
+        /* Formulaire avec indications */
+        .contact-container { max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 10px; border: 1px solid var(--border-color); text-align: center; position: relative; }
+        .form-group { margin-bottom: 15px; text-align: left; position: relative; }
         label { display: block; margin-bottom: 4px; font-weight: bold; font-size: 0.85rem; }
         input, textarea, select { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main); font-size: 0.9rem; }
         
+        .form-note { 
+            position: absolute; left: 102%; top: 50%; transform: translateY(-50%);
+            width: 200px; font-size: 0.75rem; color: var(--primary); text-align: left;
+            font-style: italic; display: flex; align-items: center; gap: 8px;
+        }
+        body.dark-mode .form-note { color: var(--accent); }
+
         .payment-logo { height: 80px; width: auto; object-fit: contain; margin-bottom: 15px; border-radius: 8px; }
         .payment-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.9rem; transition: 0.3s; }
+        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.9rem; }
         .paypal-btn.donation { background: #0070ba; color: white !important; }
 
         .legal-section { font-size: 0.75rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 30px; text-align: left; }
-        .legal-section h4 { margin-bottom: 5px; }
-
+        
         footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 30px 5%; margin-top: 30px; }
 
-        #theme-toggle {
-            position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; border: none;
-            width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        @media (max-width: 768px) { .card li { white-space: normal; } }
+        @media (max-width: 1100px) { .form-note { position: static; transform: none; width: 100%; margin-top: 5px; margin-bottom: 10px; } }
     </style>
 </head>
 <body>
-
-    <button id="theme-toggle" title="Mode Sombre/Clair"><i class="fas fa-moon"></i></button>
 
     <header>
         <a href="#" class="logo-container">
             <img src="Logo KMSI.png" alt="Logo KMSI" class="logo-img">
             <div class="logo-text">KMSI <span>Services</span></div>
         </a>
-        <nav><a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Tarifs</a></nav>
+        <nav style="display: flex; align-items: center;">
+            <a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Tarifs</a>
+            <button id="theme-toggle" title="Mode Sombre/Clair"><i class="fas fa-moon"></i></button>
+        </nav>
     </header>
 
     <section class="hero">
@@ -162,8 +166,7 @@
                 <h3>Expertise Diverse</h3>
                 <div class="price">Sur Devis</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> Dépoussiérage PC</li>
-                    <li><i class="fas fa-check"></i> Cables Management</li>
+                    <li><i class="fas fa-check"></i> Dépoussiérage & Cable Management</li>
                     <li><i class="fas fa-check"></i> Domotique, Wi-Fi & Imprimantes</li>
                     <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
                     <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43 uniquement</b></li>
@@ -182,6 +185,7 @@
                 <div class="form-group">
                     <label>Votre Adresse E-mail</label>
                     <input type="email" name="_replyto" placeholder="exemple@email.com" required>
+                    <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Pour que je puisse vous recontactez pour approfondir votre besoin.</div>
                 </div>
                 <div class="form-group">
                     <label>Type de besoin</label>
@@ -195,6 +199,7 @@
                 <div class="form-group">
                     <label>Détails de votre problème</label>
                     <textarea name="message" rows="4" placeholder="Expliquez votre besoin ici..."></textarea>
+                    <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Plus vous serez précis, plus le diagnostic sera rapide.</div>
                 </div>
                 <button type="submit" class="btn" style="width: 100%;">Envoyer ma demande</button>
             </form>
@@ -208,11 +213,9 @@
             </div>
 
             <div class="legal-section">
-                <h4>Mentions Légales</h4>
-                <p><strong>Auto-entrepreneur :</strong> KMSI Services</p>
-                <p><strong>SIRET :</strong> 994 290 328</p>
-                <p><strong>Dispositions fiscales :</strong> TVA non applicable, art. 293 B du CGI.</p>
-                <p><strong>Confidentialité :</strong> Les données collectées via ce formulaire sont uniquement destinées au traitement de votre demande de dépannage.</p>
+                <p><strong>KMSI Services</strong> | SIRET : 994 290 328</p>
+                <p>TVA non applicable, art. 293 B du CGI.</p>
+                <p>Les données collectées via ce formulaire sont uniquement destinées au traitement de votre demande de dépannage.</p>
             </div>
         </div>
     </section>
