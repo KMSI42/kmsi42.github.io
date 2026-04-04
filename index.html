@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMSI - Dépannage PC à Distance & Optimisation</title>
+    <title>KMSI - Dépannage PC & Expertise Hardware</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -28,160 +28,205 @@
             --hero-overlay: rgba(15, 23, 42, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; transition: background-color 0.3s, color 0.3s; }
-        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: background-color 0.3s, color 0.3s; }
+        
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.5; }
 
-        header { background: var(--secondary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
-        .logo span { color: var(--accent); }
+        header { background: var(--secondary); color: white; padding: 0.8rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 40px; width: auto; border-radius: 5px; }
+        .logo-text { font-size: 1.4rem; font-weight: bold; color: white; }
+        .logo-text span { color: var(--accent); }
 
         .hero { 
-            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; background-position: center; color: white; padding: 80px 5%; text-align: center; 
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center; color: white; padding: 50px 5%; text-align: center; 
         }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: white; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; color: #e2e8f0; }
-        
-        .btn { background: var(--primary); color: white !important; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; cursor: pointer; }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: white; }
+        .hero p { font-size: 1.1rem; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; color: #e2e8f0; }
+        .btn { background: var(--primary); color: white !important; padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; border: none; font-size: 0.95rem; cursor: pointer; }
         .btn:hover { background: var(--accent); transform: translateY(-2px); }
 
-        .section { padding: 60px 5%; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2rem; color: var(--primary); }
+        .section { padding: 40px 5%; }
+        .section-title { text-align: center; margin-bottom: 30px; }
+        .section-title h2 { font-size: 1.8rem; color: var(--primary); }
         body.dark-mode .section-title h2 { color: white; }
-        .underline { width: 50px; height: 4px; background: var(--primary); margin: 10px auto; }
+        .underline { width: 40px; height: 4px; background: var(--primary); margin: 8px auto; }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: var(--bg-card); padding: 25px; border-radius: 10px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: 1px solid var(--border-color); border-top: 5px solid var(--primary); text-align: center; position: relative; }
-        .card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; }
-        .price { font-size: 1.8rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
+        /* Grille de cartes harmonisée */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .card { 
+            background: var(--bg-card); 
+            padding: 25px 15px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            border: 1px solid var(--border-color); 
+            border-top: 4px solid var(--primary); 
+            text-align: center; 
+            position: relative; 
+            cursor: pointer; /* Indique qu'on peut cliquer */
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15); border-color: var(--primary); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.1rem; }
+        body.dark-mode .card h3 { color: white; }
+        .price { font-size: 1.6rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
 
-        .steps { background: var(--bg-card); display: flex; flex-wrap: wrap; justify-content: space-around; text-align: center; border-radius: 10px; padding: 20px 0; border: 1px solid var(--border-color); }
-        .step { flex: 1; min-width: 200px; padding: 20px; }
-        .step-num { width: 35px; height: 35px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: bold; }
+        /* Centrage des listes avec puces alignées */
+        .card ul { list-style: none; display: inline-block; text-align: left; padding: 0; margin-top: 10px; }
+        .card li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.85rem; white-space: nowrap; }
+        .card li i { font-size: 0.85rem; color: var(--success); flex-shrink: 0; }
 
-        .contact-container { max-width: 600px; margin: 0 auto; background: var(--bg-card); padding: 30px; border-radius: 10px; border: 1px solid var(--border-color); }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main); }
+        .contact-container { max-width: 550px; margin: 0 auto; background: var(--bg-card); padding: 25px; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border-color); text-align: center; }
+        .form-group { margin-bottom: 12px; text-align: left; }
+        label { display: block; margin-bottom: 4px; font-weight: bold; font-size: 0.85rem; }
+        input, textarea, select { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px; background: var(--bg-body); color: var(--text-main); font-size: 0.9rem; }
         
-        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 12px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+        /* Fix Logo PayPal */
+        .payment-logo { height: 80px; width: auto; object-fit: contain; margin-bottom: 15px; border-radius: 8px; }
+        .payment-container { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .paypal-btn { background: #ffc439; color: #111 !important; width: 100%; padding: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: none; font-size: 0.9rem; transition: 0.3s; }
         .paypal-btn.donation { background: #0070ba; color: white !important; }
 
-        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; margin-top: 40px; }
-        #theme-toggle { position: fixed; bottom: 25px; right: 25px; background: var(--primary); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 30px 5%; margin-top: 30px; }
 
-        @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+        #theme-toggle {
+            position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; border: none;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) { .card li { white-space: normal; } }
     </style>
 </head>
 <body>
 
-    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+    <button id="theme-toggle" title="Mode Sombre/Clair"><i class="fas fa-moon"></i></button>
 
     <header>
-        <a href="#" class="logo">KMSI <span>Services</span></a>
-        <nav><a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold;">Tarifs</a></nav>
+        <a href="#" class="logo-container">
+            <img src="Logo KMSI.png" alt="Logo KMSI" class="logo-img">
+            <div class="logo-text">KMSI <span>Services</span></div>
+        </a>
+        <nav><a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">Tarifs</a></nav>
     </header>
 
     <section class="hero">
-        <h1>Votre PC est lent ? Réparation à distance.</h1>
-        <p>Optimisation complète et suppression de virus via RustDesk. Rapide, sécurisé et transparent.</p>
-        <a href="#contact" class="btn">Diagnostic Gratuit</a>
+        <h1>Assistance Informatique & Expertise Hardware</h1>
+        <p>Intervention à distance ou à domicile dans la Loire (42) et Haute-Loire (43).</p>
+        <a href="#contact" class="btn"><i class="fas fa-plug"></i> Demander un devis gratuit</a>
     </section>
 
-    <section class="section" id="tarifs">
+    <section class="section" style="background: var(--light);" id="tarifs">
         <div class="section-title">
-            <h2>Mes Forfaits</h2>
+            <h2>Mes Forfaits & Services</h2>
             <div class="underline"></div>
+            <p style="font-size: 0.85rem; opacity: 0.8;">Cliquez sur une offre pour la sélectionner</p>
         </div>
         <div class="services-grid">
-            
-            <div class="card">
+            <div class="card" onclick="selectOffer('désinfection')">
                 <i class="fas fa-shield-virus"></i>
-                <h3>Désinfection Virus</h3>
+                <h3>Désinfection (Virus)</h3>
                 <div class="price">25 €</div>
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li>✅ Scan anti-malware complet</li>
-                    <li>✅ Suppression pubs/malwares</li>
-                    <li>✅ Solutions durables navigateur</li>
+                <ul>
+                    <li><i class="fas fa-check"></i> Scan & Suppression Virus</li>
+                    <li><i class="fas fa-check"></i> Sécurisation Navigateur</li>
+                    <li><i class="fas fa-check"></i> Vérification Windows Defender</li>
                 </ul>
             </div>
-
-            <div class="card">
+            <div class="card" onclick="selectOffer('boost')">
                 <i class="fas fa-broom"></i>
-                <h3>Nettoyage & Boost</h3>
+                <h3>Boost Rapide</h3>
                 <div class="price">35 €</div>
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li>✅ Suppression fichiers inutiles</li>
-                    <li>✅ Boost du démarrage PC</li>
-                    <li>✅ Nettoyage navigateurs</li>
+                <ul>
+                    <li><i class="fas fa-check"></i> Optimisation Démarrage</li>
+                    <li><i class="fas fa-check"></i> Suppression des Fichiers Inutiles</li>
+                    <li><i class="fas fa-check"></i> Désinstallation logiciels non utilisé</li>
                 </ul>
             </div>
-
-            <div class="card" style="border: 2px solid var(--primary); transform: scale(1.05);">
-                <div style="background: var(--success); color: white; font-size: 0.65rem; padding: 3px; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); border-radius: 20px; width: 120px; font-weight: bold;">RECOMMANDÉ</div>
+            <div class="card" onclick="selectOffer('optimal')">
                 <i class="fas fa-rocket"></i>
-                <h3>Optimisation Totale</h3>
+                <h3>Pack Optimal</h3>
                 <div class="price">50 €</div>
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li>⭐ <b>Script auto + CCleaner</b></li>
-                    <li>✅ Pilotes & Windows à jour</li>
-                    <li>✅ Optimal selon votre appareil</li>
-                    <li>✅ Diagnostic complet</li>
+                <ul>
+                    <li><i class="fas fa-star" style="color: #f59e0b;"></i> <b>Script Automatique + Nettoyage Complet</b></li>
+                    <li><i class="fas fa-check"></i> MAJ Pilotes & Windows</li>
+                    <li><i class="fas fa-check"></i> Performances optimales PC</li>
                 </ul>
             </div>
-
-            <div class="card" style="border-top: 5px solid var(--accent);">
+            <div class="card" onclick="selectOffer('expert')">
                 <i class="fas fa-tools"></i>
-                <h3>Prestation Variable</h3>
+                <h3>Expertise & Domicile</h3>
                 <div class="price">Sur Devis</div>
-                <ul style="list-style: none; font-size: 0.9rem; text-align: left;">
-                    <li>✅ Installation logiciels</li>
-                    <li>✅ Problèmes réseau / Wi-Fi</li>
-                    <li>✅ Aide au montage PC</li>
-                    <li>✅ Tout autre besoin spécifique</li>
+                <ul>
+                    <li><i class="fas fa-check"></i> Montage PC & Cable Management</li>
+                    <li><i class="fas fa-check"></i> Domotique, Wi-Fi & Imprimantes</li>
+                    <li><i class="fas fa-check"></i> Récupération de données</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43</b></li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="section" id="contact">
-        <div class="section-title"><h2>Contact & Devis</h2><div class="underline"></div></div>
         <div class="contact-container">
-            <form action="https://formspree.io/f/mlgopnpp" method="POST">
-                <div class="form-group"><label>Nom complet</label><input type="text" name="name" required></div>
-                <div class="form-group"><label>Votre Adresse E-mail</label><input type="email" name="_replyto" required></div>
+            <form action="https://formspree.io/f/mlgopnpp" method="POST" id="contactForm">
                 <div class="form-group">
-                    <label>Prestation souhaitée</label>
-                    <select name="service">
-                        <option value="total">Optimisation Totale - 50€</option>
-                        <option value="boost">Nettoyage & Boost - 35€</option>
-                        <option value="virus">Désinfection Virus - 25€</option>
-                        <option value="devis">Autre / Sur Devis (Variable)</option>
+                    <label>Nom complet</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Type de besoin</label>
+                    <select name="service" id="serviceSelect">
+                        <option value="désinfection">Désinfection (Virus) - 25€</option>
+                        <option value="boost">Boost Rapide - 35€</option>
+                        <option value="optimal">Pack Optimal - 50€</option>
+                        <option value="expert">Expertise & Domicile (Sur Devis)</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Détails du problème</label><textarea name="message" rows="4"></textarea></div>
-                <button type="submit" class="btn" style="width: 100%;">Envoyer la demande</button>
+                <div class="form-group">
+                    <label>Détails de votre problème</label>
+                    <textarea name="message" rows="4" placeholder="Expliquez votre besoin ici..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Envoyer ma demande</button>
             </form>
 
-            <div style="margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px;">
-                <p style="font-weight: bold; margin-bottom: 10px; text-align: center;">Règlement sécurisé (après service) :</p>
-                <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn"><i class="fab fa-paypal"></i> Payer via PayPal (Pro)</a>
-                <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation"><i class="fas fa-heart"></i> Pourboire (Perso)</a>
+            <div class="payment-container">
+                <div class="underline" style="margin: 15px auto;"></div>
+                <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
+                <p style="font-weight: bold; font-size: 0.9rem;">Règlement sécurisé après intervention :</p>
+                <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn"><i class="fab fa-paypal"></i> Payer la prestation</a>
+                <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation"><i class="fas fa-heart"></i> Pourboire / Don</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p><strong>&copy; 2026 KMSI Services</strong> - SIRET : 994 290 328</p>
-        <p>📧 kmsidevis@gmail.com | 📞 06 01 86 37 41 (SMS)</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">TVA non applicable, art. 293 B du CGI. Dépannage via RustDesk.</p>
+        <p><strong>&copy; 2026 KMSI Services</strong></p>
+        <p style="font-size: 0.75rem;">SIRET : 994 290 328 | 📞 06 01 86 37 41 (SMS Uniquement)</p>
     </footer>
 
     <script>
-        const btn = document.getElementById('theme-toggle');
-        btn.addEventListener('click', () => {
+        // Fonction pour sélectionner l'offre et scroller
+        function selectOffer(value) {
+            const select = document.getElementById('serviceSelect');
+            select.value = value;
+            
+            // Scroll doux vers le formulaire
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            
+            // Petit effet visuel sur le select pour montrer qu'il a changé
+            select.style.borderColor = 'var(--success)';
+            setTimeout(() => { select.style.borderColor = 'var(--border-color)'; }, 1000);
+        }
+
+        // Gestion du mode sombre
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            btn.innerHTML = document.body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
         });
     </script>
 </body>
