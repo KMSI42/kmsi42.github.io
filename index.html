@@ -213,8 +213,8 @@
         .paypal-btn.donation { background: #0070ba; color: white !important; }
         .paypal-btn:hover { filter: brightness(1.05); transform: translateY(-2px); }
 
-        .legal-section { font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 25px; margin-top: 35px; text-align: center; }
         footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; }
+        .siret-footer { margin-top: 15px; font-size: 0.75rem; opacity: 0.6; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
 
         @media (max-width: 1150px) { 
             .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
@@ -244,8 +244,8 @@
         <p>Intervention à distance ou à domicile dans la Loire (42) et la Haute-Loire (43).</p>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <a href="#contact" class="btn" style="width: auto; padding: 14px 40px;">Demander un devis gratuit</a>
-            <a href="https://rustdesk.com/download" target="_blank" class="btn btn-rustdesk" style="width: auto; padding: 12px 30px; font-size: 0.9rem;">
-                <i class="fas fa-desktop" style="margin-right: 8px;"></i> Télécharger RustDesk (Aide à distance)
+            <a href="https://github.com/rustdesk/rustdesk/releases/download/1.2.3-2/rustdesk-1.2.3-2-x86_64.exe" class="btn btn-rustdesk" style="width: auto; padding: 12px 30px; font-size: 0.9rem;">
+                <i class="fas fa-desktop" style="margin-right: 8px;"></i> Lancer le téléchargement RustDesk
             </a>
         </div>
     </section>
@@ -358,20 +358,20 @@
                 </a>
             </div>
         </div>
-
-        <div class="legal-section">
-            <p><strong>KMSI Services</strong> | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.</p>
-        </div>
     </section>
 
     <footer>
         <p><strong>&copy; 2026 KMSI Services</strong></p>
         <p style="margin: 10px 0;">
-            <a href="https://rustdesk.com/download" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: bold;">
-                <i class="fas fa-download"></i> Assistance à distance : Téléchargez RustDesk ici.
+            <a href="https://github.com/rustdesk/rustdesk/releases/download/1.2.3-2/rustdesk-1.2.3-2-x86_64.exe" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: bold;">
+                <i class="fas fa-download"></i> Assistance à distance : Téléchargement direct ici.
             </a>
         </p>
         <p style="font-size: 0.85rem; letter-spacing: 0.5px;">📧 kmsidevis@gmail.com | 📞 06 XX XX XX XX (SMS Uniquement)</p>
+        
+        <div class="siret-footer">
+            KMSI Services | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.
+        </div>
     </footer>
 
     <script>
