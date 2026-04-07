@@ -5,391 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KMSI - Assistance Informatique & Expertise Diverse</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
             --secondary: #1e293b;
             --accent: #3b82f6;
-            --success: #10b981;
-            --light: #f1f5f9; 
-            --bg-body: #f1f5f9; 
-            --bg-card: #ffffff;
-            --text-main: #334155;
-            --border-color: #cbd5e1;
-            --hero-overlay: rgba(30, 41, 59, 0.9);
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --white: #ffffff;
         }
 
-        body.dark-mode {
-            --bg-body: #0f172a;
-            --bg-card: #1e293b;
-            --text-main: #cbd5e1;
-            --border-color: #334155;
-            --light: #0f172a;
-            --hero-overlay: rgba(15, 23, 42, 0.95);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
-
-        header { 
-            background: var(--secondary); 
-            color: white; 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-        }
-        
-        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-img { height: 45px; width: auto; border-radius: 6px; }
-        .logo-text { font-size: 1.5rem; font-weight: bold; color: white; letter-spacing: 0.5px; }
-        .logo-text span { color: var(--accent); }
-
-        /* Bouton de Thème Minimaliste */
-        #theme-toggle {
-            background: var(--primary); 
-            color: white; 
-            border: none;
-            padding: 8px 20px; 
-            border-radius: 30px; 
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
-            margin-left: 15px; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        #theme-toggle:hover { background: var(--accent); transform: scale(1.05); }
-
-        .hero { 
-            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover; 
-            background-position: center; 
-            color: white; 
-            padding: 80px 5%; 
-            text-align: center; 
-        }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: white; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin: 0 auto 30px auto; color: #e2e8f0; }
-
-        .section { padding: 60px 5%; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-size: 2rem; color: var(--primary); }
-        body.dark-mode .section-title h2 { color: white; }
-        .underline { width: 50px; height: 4px; background: var(--primary); margin: 10px auto; border-radius: 2px; }
-
-        /* Grille PC strictement alignée */
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: 0 auto 25px auto; 
-        }
-        
-        .contact-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 2fr; /* Aligné sur la colonne 1 puis 2+3 de la grille supérieure */
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            align-items: stretch;
-        }
-
-        .card { 
-            background: var(--bg-card); 
-            padding: 35px 25px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05); 
-            border: 1px solid var(--border-color); 
-            border-top: 5px solid var(--primary); 
-            text-align: center; 
-            position: relative; 
-            cursor: pointer;
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-        }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px -5px rgba(0,0,0,0.1); border-color: var(--primary); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        .card h3 { margin-bottom: 12px; color: var(--primary); font-size: 1.3rem; }
-        body.dark-mode .card h3 { color: white; }
-        .price { font-size: 2rem; font-weight: bold; color: var(--primary); margin: 10px 0; }
-        
-        .card ul { list-style: none; display: inline-block; text-align: left; margin: 15px 0; }
-        .card li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; }
-        .card li i { color: var(--success); flex-shrink: 0; }
-
-        /* Expertise alignée et agrandie sur PC */
-        @media (min-width: 1151px) {
-            .expertise-sidebar .card i { font-size: 3.5rem; }
-            .expertise-sidebar .card h3 { font-size: 1.6rem; }
-            .expertise-sidebar .card li { font-size: 1rem; }
-        }
-
-        .contact-container { 
-            background: var(--bg-card); 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color); 
-            width: 100%; 
-            height: 100%;
-            box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
-        }
-        
-        .form-group { margin-bottom: 25px; text-align: left; position: relative; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: var(--secondary); }
-        body.dark-mode label { color: #cbd5e1; }
-        
-        input, textarea, select { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid var(--border-color); 
-            border-radius: 8px; 
-            background: var(--bg-body); 
-            color: var(--text-main); 
-            font-size: 1rem; 
-            outline: none;
-        }
-        input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-        
-        .form-note { 
-            position: absolute; 
-            left: 104%; 
-            top: 50%; 
-            transform: translateY(-50%);
-            width: 240px; 
-            font-size: 0.8rem; 
-            color: var(--primary); 
-            font-style: italic;
-            display: flex;
             align-items: center;
-            gap: 8px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        body.dark-mode .form-note { color: var(--accent); }
 
-        .btn { 
-            background: var(--primary); 
-            color: white !important; 
-            padding: 14px 25px; 
-            border-radius: 8px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            width: 100%; 
-            border: none; 
-            font-size: 1rem; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--secondary); letter-spacing: -0.5px; }
+
+        .hero {
+            padding: 100px 5% 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #f1f5f9 0%, #fff 100%);
         }
-        .btn:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2); }
 
-        .payment-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; text-align: center; }
-        .payment-logo { height: 60px; width: auto; object-fit: contain; margin: 0 auto; border-radius: 5px; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1.5rem; color: var(--secondary); font-weight: 800; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2.5rem; color: #64748b; }
+
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); opacity: 0.9; }
+
+        /* Style spécifique bouton RustDesk */
+        .btn-rustdesk {
+            background: var(--secondary);
+            border: 2px solid var(--primary);
+        }
+
+        .services { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--white); padding: 40px; border-radius: 24px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-bottom: 15px; color: var(--secondary); font-size: 1.4rem; }
+        .price { font-size: 2rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
+
+        .contact-section { background: var(--white); padding: 80px 5%; border-top: 1px solid #e2e8f0; }
+        .contact-container { max-width: 600px; margin: 0 auto; }
         
-        .paypal-btn { 
-            background: #ffc439; 
-            color: #111 !important; 
-            padding: 12px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 10px; 
-            font-size: 0.95rem;
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea, select {
+            padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;
+            background: #f8fafc; font-family: inherit; font-size: 1rem;
         }
-        .paypal-btn.donation { background: #0070ba; color: white !important; }
-        .paypal-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
-        .legal-section { font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 25px; margin-top: 35px; text-align: center; }
+        footer {
+            background: var(--secondary); color: var(--white);
+            padding: 60px 5%; text-align: center;
+        }
 
-        footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; }
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 15px 0;
+        }
 
-        /* Responsive Mobile et Tablette */
-        @media (max-width: 1150px) { 
-            .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-            .contact-layout { grid-template-columns: 1fr; }
-            .form-note { position: static; transform: none; width: 100%; margin-top: 6px; }
-            .contact-container { padding: 30px 20px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="#" class="logo-container">
-            <img src="Logo KMSI.png" alt="Logo KMSI" class="logo-img">
-            <div class="logo-text">KMSI <span>Services</span></div>
+<header>
+    <div class="logo-container">
+        <img src="Logo KMSI.png" alt="KMSI Logo" class="logo-img">
+        <span class="logo-text">KMSI Services</span>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Assistance Informatique & Expertise Diverse</h1>
+    <p>Intervention à distance ou à domicile dans la Loire (42) et la Haute-Loire (43).</p>
+    
+    <div class="btn-container">
+        <a href="#contact" class="btn">Demander un devis gratuit</a>
+        <a href="https://rustdesk.com/download" target="_blank" class="btn btn-rustdesk">
+            <i class="fas fa-desktop"></i> Télécharger RustDesk
         </a>
-        <nav style="display: flex; align-items: center;">
-            <a href="#tarifs" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin-right: 10px;">Tarifs</a>
-            <button id="theme-toggle">
-                <span id="theme-text">Mode Sombre</span>
-            </button>
-        </nav>
-    </header>
+    </div>
+</section>
 
-    <section class="hero">
-        <h1>Assistance Informatique & Expertise Diverse</h1>
-        <p>Intervention à distance ou à domicile dans la Loire (42) et la Haute-Loire (43).</p>
-        <a href="#contact" class="btn" style="width: auto; padding: 14px 40px;">Demander un devis gratuit</a>
-    </section>
+<section class="services">
+    <div class="card">
+        <i class="fas fa-biohazard" style="font-size: 2rem; color: var(--primary);"></i>
+        <h3>Désinfection & Sécurité</h3>
+        <p>Suppression de virus, malwares et installation de protections efficaces.</p>
+        <div class="price">25€</div>
+    </div>
+    <div class="card">
+        <i class="fas fa-rocket" style="font-size: 2rem; color: var(--primary);"></i>
+        <h3>Boost PC Rapide</h3>
+        <p>Optimisation du système et nettoyage logiciel pour retrouver de la vitesse.</p>
+        <div class="price">25€</div>
+    </div>
+    <div class="card">
+        <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary);"></i>
+        <h3>Pack Sérénité</h3>
+        <p>Désinfection complète + Optimisation totale de votre ordinateur.</p>
+        <div class="price">50€</div>
+    </div>
+</section>
 
-    <section class="section" id="tarifs">
-        <div class="section-title">
-            <h2>Mes Forfaits & Services</h2>
-            <div class="underline"></div>
-        </div>
-        
-        <div class="services-grid">
-            <div class="card" onclick="selectOffer('désinfection')">
-                <div>
-                    <i class="fas fa-shield-virus"></i>
-                    <h3>Désinfection (Virus)</h3>
-                    <div class="price">25 €</div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Scan & Suppression Virus</li>
-                        <li><i class="fas fa-check"></i> Sécurisation Navigateur</li>
-                        <li><i class="fas fa-check"></i> Vérification Windows Defender</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card" onclick="selectOffer('boost')">
-                <div>
-                    <i class="fas fa-broom"></i>
-                    <h3>Boost Rapide</h3>
-                    <div class="price">25 €</div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Optimisation Démarrage</li>
-                        <li><i class="fas fa-check"></i> Suppression des Fichiers Inutiles</li>
-                        <li><i class="fas fa-check"></i> Nettoyage des logiciels tiers</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card" onclick="selectOffer('complet')" style="border: 2px solid var(--primary);">
-                <div style="background: var(--success); color: white; font-size: 0.65rem; padding: 4px 12px; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); border-radius: 20px; font-weight: bold; letter-spacing: 0.5px;">INCLUS PACKS PRÉCÉDENTS</div>
-                <div>
-                    <i class="fas fa-rocket"></i>
-                    <h3>Pack Complet</h3>
-                    <div class="price">50 €</div>
-                    <ul>
-                        <li><i class="fas fa-star" style="color: #f59e0b;"></i> <b>Nettoyage & Script Pro</b></li>
-                        <li><i class="fas fa-check"></i> Mise à jour Pilotes & OS</li>
-                        <li><i class="fas fa-check"></i> Performances PC optimales</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <h2 style="text-align: center; margin-bottom: 30px;">Envoyer une demande</h2>
+        <form action="https://formspree.io/f/xvgzlowj" method="POST">
+            <input type="text" name="nom" placeholder="Votre Nom" required>
+            <input type="email" name="email" placeholder="Votre Email" required>
+            <select name="service">
+                <option value="desinfection">Désinfection (25€)</option>
+                <option value="boost">Boost PC (25€)</option>
+                <option value="pack-complet">Pack Complet (50€)</option>
+                <option value="autre">Autre Expertise (Sur devis)</option>
+            </select>
+            <textarea name="message" rows="5" placeholder="Décrivez votre problème..." required></textarea>
+            <button type="submit" class="btn">Envoyer le message</button>
+        </form>
+    </div>
+</section>
 
-        <div class="contact-layout" id="contact">
-            <div class="expertise-sidebar">
-                <div class="card" onclick="selectOffer('expert')">
-                    <div>
-                        <i class="fas fa-tools"></i>
-                        <h3>Expertise Diverse</h3>
-                        <div class="price">Sur Devis</div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Dépoussiérage & Cable Management</li>
-                            <li><i class="fas fa-check"></i> Domotique, Wi-Fi & Imprimantes</li>
-                            <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
-                            <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43 uniquement</b></li>
-                        </ul>
-                    </div>
-                    <p style="font-size: 0.85rem; opacity: 0.8; font-style: italic;">Utilisez le formulaire ci-contre pour toute demande spécifique.</p>
-                </div>
-            </div>
+<footer>
+    <p><strong>&copy; 2026 KMSI Services</strong></p>
+    <a href="https://rustdesk.com/download" target="_blank" class="footer-link">
+        <i class="fas fa-download"></i> Besoin d'assistance ? Téléchargez RustDesk ici.
+    </a>
+    <p style="font-size: 0.9rem; margin-top: 20px; opacity: 0.8;">
+        📧 kmsidevis@gmail.com | 📞 XX XX XX XX XX (SMS uniquement)
+    </p>
+</footer>
 
-            <div class="form-main">
-                <div class="contact-container">
-                    <form action="https://formspree.io/f/mlgopnpp" method="POST">
-                        <div class="form-group">
-                            <label>Nom complet</label>
-                            <input type="text" name="name" required placeholder="Votre nom">
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Nécessaire pour la facturation.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Votre Adresse E-mail</label>
-                            <input type="email" name="_replyto" required placeholder="exemple@email.com">
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Pour vous recontacter.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Type de besoin</label>
-                            <select name="service" id="serviceSelect">
-                                <option value="désinfection">Désinfection (Virus) - 25€</option>
-                                <option value="boost">Boost Rapide - 25€</option>
-                                <option value="complet">Pack Complet - 50€</option>
-                                <option value="expert">Expertise Diverse (Sur Devis)</option>
-                            </select>
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Non définitif.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Détails de votre problème</label>
-                            <textarea name="message" rows="3" placeholder="Expliquez votre besoin ici..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Envoyer ma demande</button>
-                    </form>
-
-                    <div class="payment-container">
-                        <div class="underline" style="margin: 10px auto;"></div>
-                        <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
-                        <p style="font-weight: bold; font-size: 0.9rem; color: var(--secondary);">Règlement sécurisé après intervention :</p>
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                            <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn" style="flex: 1; min-width: 150px;"><i class="fab fa-paypal"></i> Payer la prestation</a>
-                            <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation" style="flex: 1; min-width: 150px;"><i class="fas fa-heart"></i> Pourboire / Don</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="legal-section">
-            <p><strong>KMSI Services</strong> | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.</p>
-            <p style="margin-top: 5px;">Les données collectées sont uniquement destinées au traitement de votre demande.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p><strong>&copy; 2026 KMSI Services</strong></p>
-        <p style="font-size: 0.85rem; margin-top: 10px; letter-spacing: 0.5px;">📧 kmsidevis@gmail.com | 📞 XX XX XX XX XX (SMS Uniquement)</p>
-    </footer>
-
-    <script>
-        // Sélection automatique de l'offre et scroll
-        function selectOffer(value) {
-            const select = document.getElementById('serviceSelect');
-            select.value = value;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            
-            // Petit retour visuel sur le select
-            select.style.borderColor = 'var(--success)';
-            setTimeout(() => { select.style.borderColor = 'var(--border-color)'; }, 1000);
-        }
-
-        // Gestion du Theme Switcher
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeText = document.getElementById('theme-text');
-
-        toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            themeText.innerText = isDark ? 'Mode Clair' : 'Mode Sombre';
-        });
-    </script>
 </body>
 </html>
