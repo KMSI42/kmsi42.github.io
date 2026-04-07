@@ -20,6 +20,7 @@
             --bg-body: #f1f5f9; 
             --bg-card: #ffffff;
             --text-main: #334155;
+            --text-muted: #475569; /* Couleur pour les sous-titres en mode clair */
             --border-color: #cbd5e1;
             --hero-overlay: rgba(30, 41, 59, 0.9);
         }
@@ -28,6 +29,7 @@
             --bg-body: #0f172a;
             --bg-card: #1e293b;
             --text-main: #cbd5e1;
+            --text-muted: #94a3b8; /* Couleur pour les sous-titres en mode sombre */
             --border-color: #334155;
             --light: #0f172a;
             --hero-overlay: rgba(15, 23, 42, 0.95);
@@ -102,25 +104,17 @@
             margin: 0 auto 25px auto; 
         }
         
-        /* AJUSTEMENT POUR LA SYMÉTRIE */
         .contact-layout { 
             display: grid; 
             grid-template-columns: 1fr 2fr; 
             gap: 25px; 
             max-width: 1200px; 
             margin: 0 auto; 
-            align-items: stretch; /* Force les colonnes à avoir la même hauteur */
+            align-items: stretch;
         }
 
-        .expertise-sidebar {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .expertise-sidebar .card {
-            height: 100%; /* La carte prend toute la hauteur disponible */
-            justify-content: center; /* Centre le contenu verticalement */
-        }
+        .expertise-sidebar { display: flex; flex-direction: column; }
+        .expertise-sidebar .card { height: 100%; justify-content: center; }
 
         .card { 
             background: var(--bg-card); 
@@ -145,18 +139,8 @@
         .card li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; }
         .card li i { color: var(--success); flex-shrink: 0; }
 
-        .form-header {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-        .form-header h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        body.dark-mode .form-header h3 { color: white; }
+        .form-header { margin-bottom: 20px; text-align: left; }
+        .form-header h3 { font-size: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
 
         .contact-container { 
             background: var(--bg-card); 
@@ -168,8 +152,7 @@
         }
         
         .form-group { margin-bottom: 25px; text-align: left; position: relative; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: var(--secondary); }
-        body.dark-mode label { color: #cbd5e1; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; color: var(--text-main); }
         
         input, textarea, select { 
             width: 100%; 
@@ -207,6 +190,7 @@
             margin-top: 15px;
         }
 
+        /* --- CORRECTION ICI POUR LE MODE SOMBRE --- */
         .payment-section {
             max-width: 800px;
             margin: 40px auto;
@@ -217,7 +201,9 @@
             text-align: center;
             box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05);
         }
+        .payment-section p { color: var(--text-main); } /* Utilisation de la variable adaptative */
         .payment-logo { height: 120px; width: auto; margin-bottom: 20px; }
+        
         .paypal-grid { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
         .paypal-btn { 
             background: #ffc439; 
@@ -372,7 +358,7 @@
         <div class="payment-section">
             <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
             <h3 style="margin-bottom: 10px; color: var(--primary);">Espace Règlement</h3>
-            <p style="font-weight: bold; color: var(--secondary); margin-bottom: 20px;">
+            <p style="font-weight: bold; margin-bottom: 20px;">
                 Réglez votre prestation en toute sécurité après intervention.
             </p>
             <div class="paypal-grid">
