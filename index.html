@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KMSI - Assistance Informatique & Expertise Diverse</title>
+    
+    <meta name="description" content="KMSI Services : Dépannage informatique, désinfection virus et optimisation PC à domicile ou à distance dans la Loire (42) et Haute-Loire (43).">
+    
+    <link rel="icon" type="image/png" href="Logo KMSI.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -179,7 +184,6 @@
             margin-top: 15px;
         }
 
-        /* --- NOUVELLE SECTION PAIEMENT --- */
         .payment-section {
             max-width: 800px;
             margin: 40px auto;
@@ -190,7 +194,7 @@
             text-align: center;
             box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05);
         }
-        .payment-logo { height: 100px; width: auto; margin-bottom: 20px; }
+        .payment-logo { height: 120px; width: auto; margin-bottom: 20px; }
         .paypal-grid { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
         .paypal-btn { 
             background: #ffc439; 
@@ -216,6 +220,7 @@
             .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
             .contact-layout { grid-template-columns: 1fr; }
             .payment-section { margin: 20px 5%; padding: 25px; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -240,7 +245,7 @@
         <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <a href="#contact" class="btn" style="width: auto; padding: 14px 40px;">Demander un devis gratuit</a>
             <a href="https://rustdesk.com/download" target="_blank" class="btn btn-rustdesk" style="width: auto; padding: 12px 30px; font-size: 0.9rem;">
-                <i class="fas fa-desktop" style="margin-right: 8px;"></i> Télécharger RustDesk (Assistance à distance)
+                <i class="fas fa-desktop" style="margin-right: 8px;"></i> Télécharger RustDesk (Aide à distance)
             </a>
         </div>
     </section>
@@ -304,3 +309,86 @@
                             <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
                             <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43 uniquement</b></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-main">
+                <div class="contact-container">
+                    <form action="https://formspree.io/f/mlgopnpp" method="POST">
+                        <div class="form-group">
+                            <label>Nom complet</label>
+                            <input type="text" name="name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label>Votre Adresse E-mail</label>
+                            <input type="email" name="_replyto" required placeholder="exemple@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Type de besoin</label>
+                            <select name="service" id="serviceSelect">
+                                <option value="désinfection">Désinfection (Virus) - 25€</option>
+                                <option value="boost">Boost Rapide - 25€</option>
+                                <option value="complet">Pack Complet - 50€</option>
+                                <option value="expert">Expertise Diverse (Sur Devis)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Détails de votre problème</label>
+                            <textarea name="message" rows="3" placeholder="Expliquez votre besoin ici..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Demander un devis gratuit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-section">
+            <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
+            <h3 style="margin-bottom: 10px; color: var(--primary);">Espace Règlement</h3>
+            <p style="font-weight: bold; color: var(--secondary); margin-bottom: 20px;">
+                Réglez votre prestation en toute sécurité après intervention.
+            </p>
+            <div class="paypal-grid">
+                <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn">
+                    <i class="fab fa-paypal"></i> Régler ma facture
+                </a>
+                <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation">
+                    <i class="fas fa-heart"></i> Laisser un pourboire
+                </a>
+            </div>
+        </div>
+
+        <div class="legal-section">
+            <p><strong>KMSI Services</strong> | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>&copy; 2026 KMSI Services</strong></p>
+        <p style="margin: 10px 0;">
+            <a href="https://rustdesk.com/download" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: bold;">
+                <i class="fas fa-download"></i> Assistance à distance : Téléchargez RustDesk ici.
+            </a>
+        </p>
+        <p style="font-size: 0.85rem; letter-spacing: 0.5px;">📧 kmsidevis@gmail.com | 📞 06 XX XX XX XX (SMS Uniquement)</p>
+    </footer>
+
+    <script>
+        function selectOffer(value) {
+            const select = document.getElementById('serviceSelect');
+            select.value = value;
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeText = document.getElementById('theme-text');
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeText.innerText = isDark ? 'Mode Clair' : 'Mode Sombre';
+        });
+    </script>
+</body>
+</html>
