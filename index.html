@@ -130,23 +130,13 @@
         .card li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; }
         .card li i { color: var(--success); flex-shrink: 0; }
 
-        @media (min-width: 1151px) {
-            .expertise-sidebar .card i { font-size: 3.5rem; }
-            .expertise-sidebar .card h3 { font-size: 1.6rem; }
-            .expertise-sidebar .card li { font-size: 1rem; }
-        }
-
         .contact-container { 
             background: var(--bg-card); 
             padding: 40px; 
             border-radius: 12px; 
             border: 1px solid var(--border-color); 
             width: 100%; 
-            height: 100%;
             box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center;
         }
         
         .form-group { margin-bottom: 25px; text-align: left; position: relative; }
@@ -165,21 +155,6 @@
         }
         input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
         
-        .form-note { 
-            position: absolute; 
-            left: 104%; 
-            top: 50%; 
-            transform: translateY(-50%);
-            width: 240px; 
-            font-size: 0.8rem; 
-            color: var(--primary); 
-            font-style: italic;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        body.dark-mode .form-note { color: var(--accent); }
-
         .btn { 
             background: var(--primary); 
             color: white !important; 
@@ -194,23 +169,33 @@
             letter-spacing: 0.5px;
             text-decoration: none;
             display: inline-block;
+            text-align: center;
         }
         .btn:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2); }
 
-        /* BOUTON RUSTDESK SPECIFIQUE */
         .btn-rustdesk {
             background: var(--secondary);
             border: 2px solid var(--primary);
             margin-top: 15px;
         }
 
-        .payment-container { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; text-align: center; }
-        .payment-logo { height: 60px; width: auto; object-fit: contain; margin: 0 auto; border-radius: 5px; }
-        
+        /* --- NOUVELLE SECTION PAIEMENT --- */
+        .payment-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-shadow: 0 4px 15px -3px rgba(0,0,0,0.05);
+        }
+        .payment-logo { height: 100px; width: auto; margin-bottom: 20px; }
+        .paypal-grid { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
         .paypal-btn { 
             background: #ffc439; 
             color: #111 !important; 
-            padding: 12px; 
+            padding: 15px; 
             border-radius: 8px; 
             text-decoration: none; 
             font-weight: bold; 
@@ -218,20 +203,19 @@
             align-items: center; 
             justify-content: center; 
             gap: 10px; 
-            font-size: 0.95rem;
+            flex: 1;
+            min-width: 200px;
         }
         .paypal-btn.donation { background: #0070ba; color: white !important; }
-        .paypal-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+        .paypal-btn:hover { filter: brightness(1.05); transform: translateY(-2px); }
 
         .legal-section { font-size: 0.8rem; opacity: 0.7; border-top: 1px solid var(--border-color); padding-top: 25px; margin-top: 35px; text-align: center; }
-
         footer { background: var(--secondary); color: #cbd5e1; text-align: center; padding: 40px 5%; }
 
         @media (max-width: 1150px) { 
             .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
             .contact-layout { grid-template-columns: 1fr; }
-            .form-note { position: static; transform: none; width: 100%; margin-top: 6px; }
-            .contact-container { padding: 30px 20px; }
+            .payment-section { margin: 20px 5%; padding: 25px; }
         }
     </style>
 </head>
@@ -255,7 +239,7 @@
         <p>Intervention à distance ou à domicile dans la Loire (42) et la Haute-Loire (43).</p>
         <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <a href="#contact" class="btn" style="width: auto; padding: 14px 40px;">Demander un devis gratuit</a>
-            <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.6/rustdesk-1.4.6-x86_64.exe" target="_blank" class="btn btn-rustdesk" style="width: auto; padding: 12px 30px; font-size: 0.9rem;">
+            <a href="https://rustdesk.com/download" target="_blank" class="btn btn-rustdesk" style="width: auto; padding: 12px 30px; font-size: 0.9rem;">
                 <i class="fas fa-desktop" style="margin-right: 8px;"></i> Télécharger RustDesk (Assistance à distance)
             </a>
         </div>
@@ -320,87 +304,3 @@
                             <li><i class="fas fa-check"></i> Toute demande sera étudiée !</li>
                             <li><i class="fas fa-map-marker-alt"></i> <b>Déplacement 42 / 43 uniquement</b></li>
                         </ul>
-                    </div>
-                    <p style="font-size: 0.85rem; opacity: 0.8; font-style: italic;">Utilisez le formulaire ci-contre pour toute demande spécifique.</p>
-                </div>
-            </div>
-
-            <div class="form-main">
-                <div class="contact-container">
-                    <form action="https://formspree.io/f/mlgopnpp" method="POST">
-                        <div class="form-group">
-                            <label>Nom complet</label>
-                            <input type="text" name="name" required placeholder="Votre nom">
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Nécessaire pour la facturation.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Votre Adresse E-mail</label>
-                            <input type="email" name="_replyto" required placeholder="exemple@email.com">
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Pour vous recontacter.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Type de besoin</label>
-                            <select name="service" id="serviceSelect">
-                                <option value="désinfection">Désinfection (Virus) - 25€</option>
-                                <option value="boost">Boost Rapide - 25€</option>
-                                <option value="complet">Pack Complet - 50€</option>
-                                <option value="expert">Expertise Diverse (Sur Devis)</option>
-                            </select>
-                            <div class="form-note"><i class="fas fa-long-arrow-alt-left"></i> Non définitif.</div>
-                        </div>
-                        <div class="form-group">
-                            <label>Détails de votre problème</label>
-                            <textarea name="message" rows="3" placeholder="Expliquez votre besoin ici..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Envoyer ma demande</button>
-                    </form>
-
-                    <div class="payment-container">
-                        <div class="underline" style="margin: 10px auto;"></div>
-                        <img src="Logo KMSI.png" alt="Logo KMSI" class="payment-logo">
-                        <p style="font-weight: bold; font-size: 0.9rem; color: var(--secondary);">Règlement sécurisé après intervention :</p>
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                            <a href="https://paypal.me/kmsi42" target="_blank" class="paypal-btn" style="flex: 1; min-width: 150px;"><i class="fab fa-paypal"></i> Payer la prestation</a>
-                            <a href="https://paypal.me/alphazidar" target="_blank" class="paypal-btn donation" style="flex: 1; min-width: 150px;"><i class="fas fa-heart"></i> Pourboire / Don</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="legal-section">
-            <p><strong>KMSI Services</strong> | SIRET : 994 290 328 | TVA non applicable, art. 293 B du CGI.</p>
-            <p style="margin-top: 5px;">Les données collectées sont uniquement destinées au traitement de votre demande.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p><strong>&copy; 2026 KMSI Services</strong></p>
-        <p style="margin: 10px 0;">
-            <a href="https://github.com/rustdesk/rustdesk/releases/download/1.4.6/rustdesk-1.4.6-x86_64.exe" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: bold;">
-                <i class="fas fa-download"></i> Besoin d'assistance à distance ? Téléchargez RustDesk.
-            </a>
-        </p>
-        <p style="font-size: 0.85rem; letter-spacing: 0.5px;">📧 kmsidevis@gmail.com | 📞 XX XX XX XX XX (SMS Uniquement)</p>
-    </footer>
-
-    <script>
-        function selectOffer(value) {
-            const select = document.getElementById('serviceSelect');
-            select.value = value;
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-            select.style.borderColor = 'var(--success)';
-            setTimeout(() => { select.style.borderColor = 'var(--border-color)'; }, 1000);
-        }
-
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeText = document.getElementById('theme-text');
-
-        toggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            themeText.innerText = isDark ? 'Mode Clair' : 'Mode Sombre';
-        });
-    </script>
-</body>
-</html>
